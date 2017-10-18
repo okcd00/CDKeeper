@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/pages.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<!-- InstanceBeginEditable name="doctitle" -->
+
+<title>工资计算 - 计算机软件能力认证考试系统</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="/styles/styles.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="/js/tsinsen2013.js"></script>
+<script language="javascript" type="text/javascript" src="/js/common.js"></script>
+</head>
+
+<body>
+<div id="popall"></div>
+<div class="headbar">
+
+<div class="userbox">
+<div class="usericon"></div><div class="userinfo"><span style="display:block"><span style="color:red;">陈点！</span>欢迎您登录计算机软件能力认证考试系统！</span><span style="display:none">欢迎您来到计算机软件能力认证考试系统！请登录</span>
+</div></div>
+<div class="timebox">
+<div class="timeinfo" id="adminopinfo"></div> &nbsp; <div class="timeinfo" id="info1"></div>
+</div>
+
+</div>
+<script type="text/javascript">
+function getCurrentInfo()
+{
+	var ret = {"alertinfo0":"离比赛结束还剩不到十分钟时间。","alertinfo1":"离比赛结束还剩不到30分钟时间。","alerttime0":"600","alerttime1":"1800","cdate":"2016年12月18日 星期日","extratime":"no","groupid":"C/C++","groupname":"C/C++","idnumber":"422301199405041235","name":"陈点","notuserdisplay":"none","regionname":"北京航空航天大学","ret":"1","roomid":"CSP161201","roomname":"北京航空航天大学","serverdate":"2016年12月18日","servertime":"57451","time":"57452","timeleft":"5551","timepast":"8848","userdisplay":"block","userid":"201608105688","ustatus":"normal"};
+	ret.timec = new Date().getTime();
+	return ret;
+}
+var currentInfo = getCurrentInfo();
+checkUState();
+onticktime();setInterval(onticktime, 1000);
+</script>
+<div class="mainbar"><div class="cont">
+	<div class="maincont"><div style="height:1px;"></div>
+<!-- InstanceBeginEditable name="main" -->
+<div class="infobar"><div class="infobox">
+	<div class="uinfoitem"><div class="inforef">准考证号：</div><div class="infoval">201608105688</div></div>
+	<div class="uinfoitem"><div class="inforef">考试剩余时间：</div><div class="infoval" id="info2"></div></div>
+	<div class="uinfoitem"><div class="inforef">姓名：</div><div class="infoval">陈点</div></div>
+	<div class="uinfoitem"><div class="inforef">当前时间：</div><div class="infoval" id="info4"></div></div>
+</div></div>
+<style>
+.problembox {
+width:925px; margin:0px auto 18px auto;
+}
+.problembox .problemheadbar {
+height:30px; line-height:30px; text-align:center;
+background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7e9f4), to(#b1cbe3)); 
+background:-moz-linear-gradient(top, #d7e9f4, #b1cbe3);
+FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#d7e9f4,endColorStr=#b1cbe3);
+font-weight:bold;
+}
+.problembox .problemdesc {
+}
+.problembox .problemdesc .probtable {
+}
+.problembox .problemdesc .probtable td {
+background:#fff;
+text-align:left;
+padding:12px;
+}
+.problembox .problemdesc .probtable .probref {
+width:100px;
+background:#f8f8f8;
+vertical-align:middle;
+color:#0057a4;
+text-align:center;
+}
+.problembox .problemdesc .probtable .ucodetd {
+padding:0px;
+}
+.problembox .problemdesc .probtable #ucode {
+font-family:"Courier New", Courier, monospace;
+font-size:12px;
+width:780px;
+height:300px;
+padding:8px;
+border:1px solid #777;
+border-radius:4px;
+}
+.submitbtns {
+text-align:center;
+margin:0px auto 85px auto;
+}
+</style>
+<div class="problembox">
+<div style="text-align:right;"><a href="/home.page">返回试题列表</a></div>
+</div>
+<div class="problembox">
+	<div class="problemheadbar">问题描述</div>
+	<div class="problemdesc">
+	<table class="probtable" style="font-size:14px; text-align:center; background:#c0d6dd;" align="center" width="100%" cellpadding="0" cellspacing="1">
+	<tr><td class="probref">试题编号：</td><td>2</td></tr>
+	<tr><td class="probref">试题名称：</td><td>工资计算</td></tr>
+	<tr><td class="probref">时间限制：</td><td>1.0s</td></tr>
+	<tr><td class="probref">内存限制：</td><td>256.0MB</td></tr>
+	<tr><td class="probref">问题描述：</td><td><div class='pdsec'>问题描述</div><div class='pdcont'>　　小明的公司每个月给小明发工资，而小明拿到的工资为交完个人所得税之后的工资。假设他一个月的税前工资（扣除五险一金后、未扣税前的工资）为<i>S</i>元，则他应交的个人所得税按如下公式计算：<br />
+　　1） 个人所得税起征点为3500元，若<i>S</i>不超过3500，则不交税，3500元以上的部分才计算个人所得税，令<i>A</i>=<i>S</i>-3500元；<br />
+　　2） <i>A</i>中不超过1500元的部分，税率3%；<br />
+　　3） <i>A</i>中超过1500元未超过4500元的部分，税率10%；<br />
+　　4） <i>A</i>中超过4500元未超过9000元的部分，税率20%；<br />
+　　5） <i>A</i>中超过9000元未超过35000元的部分，税率25%；<br />
+　　6） <i>A</i>中超过35000元未超过55000元的部分，税率30%；<br />
+　　7） <i>A</i>中超过55000元未超过80000元的部分，税率35%；<br />
+　　8） <i>A</i>中超过80000元的部分，税率45%；<br />
+　　例如，如果小明的税前工资为10000元，则<i>A</i>=10000-3500=6500元，其中不超过1500元部分应缴税1500×3%=45元，超过1500元不超过4500元部分应缴税(4500-1500)×10%=300元，超过4500元部分应缴税(6500-4500)×20%=400元。总共缴税745元，税后所得为9255元。<br />
+　　已知小明这个月税后所得为<i>T</i>元，请问他的税前工资<i>S</i>是多少元。</div><div class='pdsec'>输入格式</div><div class='pdcont'>　　输入的第一行包含一个整数<i>T</i>，表示小明的税后所得。所有评测数据保证小明的税前工资为一个整百的数。</div><div class='pdsec'>输出格式</div><div class='pdcont'>　　输出一个整数<i>S</i>，表示小明的税前工资。</div><div class='pdsec'>样例输入</div><div class='pddata'>9255</div><div class='pdsec'>样例输出</div><div class='pddata'>10000</div><div class='pdsec'>评测用例规模与约定</div><div class='pdcont'>　　对于所有评测用例，1 ≤ <i>T</i> ≤ 100000。</div>
+
+	</td></tr>
+	</table>
+	</div>
+</div>
+<div id="code" class="problembox">
+	<div class="problemheadbar">答题栏</div>
+	<div class="problemdesc">
+	<table class="probtable" style="font-size:14px; text-align:center; background:#c0d6dd;" align="center" width="100%" cellpadding="0" cellspacing="1">
+	<tr><td class="probref">试题编号：</td><td>2</td></tr>
+	<tr><td class="probref">试题名称：</td><td>工资计算</td></tr>
+	<tr><td class="probref">编译环境：</td><td><select id="ulang" onchange="langchange()">
+		</select></td></tr>
+	<tr><td class="probref">答案程序：</td><td class="ucodetd"><textarea id="ucode"></textarea></td></tr>
+	<tr><td class="probref">提交确认：</td><td>
+		以下必须全部满足才能提交：
+		<div id="div_javapackage"><label for="sure_javapackage"><input id="sure_javapackage" type=checkbox />
+			我的程序<b>没有</b>使用package语句来定义包的信息。（如果定义了将无法评测）
+		</label></div>
+		<div id="div_javaclass"><label for="sure_javaclass"><input id="sure_javaclass" type=checkbox />
+			我的程序的主类名称是<b>Main</b>，主类的定义是public class Main。我的程序运行的入口是主类Main中的main函数，定义为public static void main(String[] args)。
+		</label></div>
+		<div id="div_cinc"><label for="sure_cinc"><input id="sure_cinc" type=checkbox />
+			我<b>没有引用stdafx.h</b>这个非标准的头文件。（如果引用了会造成编译错误）
+		</label></div>
+		<div id="div_cmain"><label for="sure_cmain"><input id="sure_cmain" type=checkbox />
+			我程序的运行入口函数是<b>main</b>，main的返回值类型是<b>int</b>，而且main的返回值始终是0。
+		</label></div>
+		<div id="div_javastd"><label for="sure_javastd"><input id="sure_javastd" type=checkbox />
+			我的程序是从<b>标准输入</b>(System.in)中读入数据的（使用Scanner等类来处理System.in的输入视为满足条件），结果是输出到<b>标准输出</b>(System.out)的。
+		</label></div>
+		<div id="div_cstd"><label for="sure_cstd"><input id="sure_cstd" type=checkbox />
+			我的程序是从<b>标准输入</b>中读入数据的(使用cin/scanf等读入)，结果是输出到<b>标准输出</b>的(使用cout/printf等输出)。
+		</label></div>
+		<div id="div_pystd"><label for="sure_pystd"><input id="sure_pystd" type=checkbox />
+			我的程序是从<b>标准输入</b>中读入数据的，结果是输出到<b>标准输出</b>的。
+		</label></div>
+		<div id="div_extra"><label for="sure_extra"><input id="sure_extra" type=checkbox />
+			我的程序中<b>没有</b>“请输入n”之类的输入输出提示，也<b>没有</b>输出中间的结果，所有的输出内容都与题设中的输出格式相对应。我的输出格式（包括换行和大小写等）与题设中输出格式的要求相符。
+		</label></div>
+	</td></tr>
+	</table>
+	</div>
+</div>
+<div class="submitbtns">
+<input type="button" class="orangebtn" value="提　交" onclick="submitclick()" />
+<input id="restorePrevBtn" type="button" class="orangebtn" value="查看上一次提交" onclick="restorePrevCode()" />
+<input type="button" class="orangebtn" value="返回试题列表" onclick="goback()" />
+</div>
+<script type="text/javascript">
+var canLeave = false;
+var _var_prev_code = "#include <map>\n#include <cmath>\n#include <queue>\n#include <cstdio>\n#include <string>\n#include <cstring>\n#include <iostream>\n#include <algorithm>\nusing namespace std;\n\n#define MAXN 100024\n\nint rate[8]  = {0,    3,   10,   20,    25,    30,    35,     45};\nint rank[8]  = {0, 1500, 4500, 9000, 35000, 55000, 80000, 154400};\nint limit[8] = {0, 1455, 4155, 7755, 27255, 41255, 57505, 100000};\n\n//\tlimit[i] = limit[i-1]  \\\n//\t+( rank[i]-rank[i-1] ) \\\n//\t-( rank[i]-rank[i-1] ) * rate[i]/100;\n\nint main()\n{\n\tint t; cin>>t;\n\tint a = t - 3500;\n\t\n\tif(a<=0)\n\t{\n\t\tcout<<t<<endl; \n\t\treturn 0;\n\t}\n\t\n\tfor(int i=1; i<8; i++)\n\t{\n\t\tif(a <= limit[i])\n\t\t{\n\t\t\tint rest = a - limit[i-1];\n\t\t\t// Using integer calculation to avoid float_point error\n\t\t\tint ret = rank[i-1] + rest*100/(100-rate[i]);\n\t\t\tcout<< ret + 3500 <<endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\t\n\treturn 0;\n}\n";
+var _cprecheck = ["cinc", "cmain", "cstd", "extra"];
+var _javaprecheck = ["javapackage", "javaclass", "javastd", "extra"];
+var _defprecheck = ["cstd", "extra"];
+var _allprecheck = ["javapackage", "javaclass", "cinc", "cmain", "javastd", "cstd", "extra"];
+var _pythonprecheck = ["pystd", "extra"];
+function langchange()
+{
+	var langD = e("ulang");
+	var curprecheck = _defprecheck;
+	if (langD.value == "DC" || langD.value == "DCPP" || langD.value == "CPP11")
+		curprecheck = _cprecheck;
+	else if (langD.value == "JAVA")
+		curprecheck = _javaprecheck;
+	else if (langD.value == "PYTHON" || langD.value == "PYTHON27")
+		curprecheck = _pythonprecheck;
+	for (var i = 0; i < _allprecheck.length; ++i)
+	{
+		var have = false;
+		for (var j = 0; j < curprecheck.length; ++j)
+			if (curprecheck[j]==_allprecheck[i])
+				have = true;
+		if (have)
+		{
+			e("div_"+_allprecheck[i]).style.display = "block";
+		}
+		else
+		{
+			e("div_"+_allprecheck[i]).style.display = "none";
+		}
+	}
+}
+function isCodeChanged()
+{
+	var prevCode = getPrevCode();
+	if (prevCode==null) prevCode = "";
+	var curCode = e("ucode").value;
+	if (curCode == null) curCode = "";
+	return (curCode!="" && curCode!=prevCode);
+}
+
+function codeChange()
+{
+	var prevCode = getPrevCode();
+	if (prevCode==null) prevCode = "";
+	if (e("ucode").value!="" || prevCode=="")
+	{
+		e("restorePrevBtn").className = "orangebtndisable";
+		e("restorePrevBtn").disabled = true;
+	}
+	else
+	{
+		e("restorePrevBtn").className = "orangebtn";
+		e("restorePrevBtn").disabled = false;
+	}
+}
+setInterval(codeChange, 100);
+function submitclick()
+{
+	var vlan = e("ulang").value;
+	var vpid = "1";
+	var vcode = e("ucode").value;
+	if (vlan=="-")
+	{
+		popAlertIcon("提交失败", function (div) { div.innerHTML = "请先选择编译环境。"}, "/images/imgno.png");
+		return ;
+	}
+	
+	var curprecheck = _defprecheck;
+	if (vlan == "DC" || vlan == "DCPP" || vlan == "CPP11")
+		curprecheck = _cprecheck;
+	else if (vlan == "JAVA")
+		curprecheck = _javaprecheck;
+	else if (vlan == "PYTHON" || vlan == "PYTHON27")
+		curprecheck = _pythonprecheck;
+
+	for (var i = 0; i < curprecheck.length; ++i)
+	{
+		if (!e("sure_"+curprecheck[i]).checked)
+		{
+			popAlertIcon("提交失败", function (div) { div.innerHTML = "请确认你的程序满足提交确认中的要求。"}, "/images/imgno.png");
+			return ;
+		}
+	}
+	
+	setData("lang", vlan);
+	portxd("/test.SubmitCode.dt", {lang:vlan, pid:vpid, code:vcode}, function(obj) {
+		if (obj["ret"]=="1")
+		{
+			_var_prev_code = vcode;
+			_cpop = popAlertIcon("提交成功", function (div) { div.innerHTML = "提交成功。您还可以反复提交，在您修改答案后需要再次提交，系统以最后一次提交为准。";
+				var sure = newBtn("确定", newT("",div,"btns"), "bluebtn");
+				sure.onclick = function() { canLeave = true; location.href="/home.page"; };
+			}, "/images/imgyes.png");
+			//location.href = "/mysubmits.page";
+		}
+		else
+		{
+			popAlertIcon("提交失败", function (div) { div.innerHTML = obj["info"]}, "/images/imgno.png");
+			ubtn.enableClick();
+		}
+	});
+}
+
+function showLangs(langs)
+{
+	var _langs = e("ulang");
+	_langs.options.length = 0;
+	var comps = langs.split("/");
+	var id = 0;
+	_langs.options.add(new Option("请选择你的编译环境", "-"));
+	var prevLang = getData("lang");
+	var pprevLang = "DCPP";
+	if (pprevLang!="") prevLang = pprevLang;
+	for (st in comps)
+	{
+		++id;
+		_langs.options.add(new Option(id + ". " + toCompileName(comps[st]), comps[st]));
+	}
+	for (var i = 0; i < _langs.options.length; i++)
+		if (_langs.options[i].value == prevLang)
+			_langs.options[i].selected = true;
+	if (_langs.options.length == 2)
+		_langs.options[1].selected = true;
+	langchange();
+}
+showLangs("DC/DCPP/CPP11");
+function getPrevCode()
+{
+	return _var_prev_code;
+}
+function restorePrevCode()
+{
+	var _langs = e("ulang");
+	var prevLang = "DCPP";
+	if (e("ucode").value == "")
+	{
+		for (var i = 0; i < _langs.options.length; i++)
+			if (_langs.options[i].value == prevLang)
+				_langs.options[i].selected = true;
+		e("ucode").value = getPrevCode();
+		langchange();
+	}
+}
+
+function checkRestore()
+{
+	var url = location.href;
+	if (url.indexOf("#code")>0)
+		restorePrevCode();
+}
+
+checkRestore();
+
+function goback()
+{
+	location.href = "/home.page";
+}
+
+window.onbeforeunload = function(event){
+    event = event || window.event;
+	if (!canLeave && isCodeChanged())
+	    return "您在答案程序编辑框中有正在编辑的程序，如果离开此内容将丢失，您确定离开吗？";
+}
+
+</script>
+<!-- InstanceEndEditable -->
+<div style="height:1px;"></div>
+	</div>
+</div></div>
+<div class="copyrightbar"><div class="cont">
+	<div class="dcopy">版权所有 中国计算机学会 京ICP备13000930号-4</div>
+</div></div>
+	<iframe id="dframe" src="about:blank" style="width:1px; height:1px; visibility:hidden; border:0px; padding:0px; margin:0px;"></iframe>
+</body>
+<!-- InstanceEnd --></html>

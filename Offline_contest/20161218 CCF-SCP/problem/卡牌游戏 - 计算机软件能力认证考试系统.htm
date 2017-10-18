@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/pages.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<!-- InstanceBeginEditable name="doctitle" -->
+
+<title>卡牌游戏 - 计算机软件能力认证考试系统</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="/styles/styles.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="/js/tsinsen2013.js"></script>
+<script language="javascript" type="text/javascript" src="/js/common.js"></script>
+</head>
+
+<body>
+<div id="popall"></div>
+<div class="headbar">
+
+<div class="userbox">
+<div class="usericon"></div><div class="userinfo"><span style="display:block"><span style="color:red;">陈点！</span>欢迎您登录计算机软件能力认证考试系统！</span><span style="display:none">欢迎您来到计算机软件能力认证考试系统！请登录</span>
+</div></div>
+<div class="timebox">
+<div class="timeinfo" id="adminopinfo"></div> &nbsp; <div class="timeinfo" id="info1"></div>
+</div>
+
+</div>
+<script type="text/javascript">
+function getCurrentInfo()
+{
+	var ret = {"alertinfo0":"离比赛结束还剩不到十分钟时间。","alertinfo1":"离比赛结束还剩不到30分钟时间。","alerttime0":"600","alerttime1":"1800","cdate":"2016年12月18日 星期日","extratime":"no","groupid":"C/C++","groupname":"C/C++","idnumber":"422301199405041235","name":"陈点","notuserdisplay":"none","regionname":"北京航空航天大学","ret":"1","roomid":"CSP161201","roomname":"北京航空航天大学","serverdate":"2016年12月18日","servertime":"57508","time":"57509","timeleft":"5494","timepast":"8905","userdisplay":"block","userid":"201608105688","ustatus":"normal"};
+	ret.timec = new Date().getTime();
+	return ret;
+}
+var currentInfo = getCurrentInfo();
+checkUState();
+onticktime();setInterval(onticktime, 1000);
+</script>
+<div class="mainbar"><div class="cont">
+	<div class="maincont"><div style="height:1px;"></div>
+<!-- InstanceBeginEditable name="main" -->
+<div class="infobar"><div class="infobox">
+	<div class="uinfoitem"><div class="inforef">准考证号：</div><div class="infoval">201608105688</div></div>
+	<div class="uinfoitem"><div class="inforef">考试剩余时间：</div><div class="infoval" id="info2"></div></div>
+	<div class="uinfoitem"><div class="inforef">姓名：</div><div class="infoval">陈点</div></div>
+	<div class="uinfoitem"><div class="inforef">当前时间：</div><div class="infoval" id="info4"></div></div>
+</div></div>
+<style>
+.problembox {
+width:925px; margin:0px auto 18px auto;
+}
+.problembox .problemheadbar {
+height:30px; line-height:30px; text-align:center;
+background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7e9f4), to(#b1cbe3)); 
+background:-moz-linear-gradient(top, #d7e9f4, #b1cbe3);
+FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#d7e9f4,endColorStr=#b1cbe3);
+font-weight:bold;
+}
+.problembox .problemdesc {
+}
+.problembox .problemdesc .probtable {
+}
+.problembox .problemdesc .probtable td {
+background:#fff;
+text-align:left;
+padding:12px;
+}
+.problembox .problemdesc .probtable .probref {
+width:100px;
+background:#f8f8f8;
+vertical-align:middle;
+color:#0057a4;
+text-align:center;
+}
+.problembox .problemdesc .probtable .ucodetd {
+padding:0px;
+}
+.problembox .problemdesc .probtable #ucode {
+font-family:"Courier New", Courier, monospace;
+font-size:12px;
+width:780px;
+height:300px;
+padding:8px;
+border:1px solid #777;
+border-radius:4px;
+}
+.submitbtns {
+text-align:center;
+margin:0px auto 85px auto;
+}
+</style>
+<div class="problembox">
+<div style="text-align:right;"><a href="/home.page">返回试题列表</a></div>
+</div>
+<div class="problembox">
+	<div class="problemheadbar">问题描述</div>
+	<div class="problemdesc">
+	<table class="probtable" style="font-size:14px; text-align:center; background:#c0d6dd;" align="center" width="100%" cellpadding="0" cellspacing="1">
+	<tr><td class="probref">试题编号：</td><td>5</td></tr>
+	<tr><td class="probref">试题名称：</td><td>卡牌游戏</td></tr>
+	<tr><td class="probref">时间限制：</td><td>3.0s</td></tr>
+	<tr><td class="probref">内存限制：</td><td>256.0MB</td></tr>
+	<tr><td class="probref">问题描述：</td><td><div class='pdsec'>问题描述</div><div class='pdcont'>　　小Q和小M是游戏数值策划师，他们最近在测试自己新设计的卡牌对战游戏。游戏总共有 <i>n</i> 张卡牌，用 1 到 <i>n</i> 的正整数编号。最开始小Q和小M各会拥有其中的一部分。<br />
+　　每一局游戏，小Q和小M都需要从自己拥有的卡牌中选出一张进行对战，获胜的一方会获得双方选出的两张卡牌。游戏会一直进行下去，直到其中一个人获得了所有的卡牌，此时获得所有卡牌的一方赢得了最终的胜利。<br />
+　　对于一对特定的卡牌 <i>i</i> 和 <i>j</i>，<i>i</i> 战胜 <i>j</i> 的概率为 <i>P<sub>i</sub></i><sub>, <i>j</i></sub>。此概率与其他事件独立，只与选出的这两张卡牌有关系；每次对战一定会决出胜负，因此有 <i>P<sub>i</sub></i><sub>,<i>j</i></sub> + <i>P<sub>j</sub></i><sub>,<i>i</i></sub> = 1。<br />
+　　小Q和小M都没有好好学习博弈论，已经忘了混合决策那套理论。经过商量，他们采取了同一套看起来合理的选牌方式：<br />
+　　1.  对于自己的卡牌 <i>i</i>，计算出这张卡牌能赢得对方每张卡牌的概率之和 <i>S<sub>i</sub></i>=&sum;<sub>j</sub><sub>是对方的卡牌</sub><i>P<sub>i</sub></i><sub>, <i>j </i></sub>；<br />
+　　2.  令自己选出卡牌<i>i</i>的概率正比于<i>S<sub>i</sub></i>，即选出<i>i</i>的概率为 <i>S<sub>i</sub></i>/&sum;<i><sub>k</sub></i><sub>是自己的卡牌</sub><i>S<sub>k</sub></i>。<br />
+　　小M想知道，对于给出的 <i>m</i> 种初始状态，他最终获胜的概率是多少。</div><div class='pdsec'>输入格式</div><div class='pdcont'>　　从标准输入读入数据。<br />
+　　输入的第一行包含两个正整数 <i>n</i>, <i>m</i> 表示卡牌的数量和初始状态的数量。<br />
+　　接下来 <i>n</i>-1 行。其中的第 <i>i</i> 行（1 ≤ <i>i</i> &lt; <i>n</i>）包含 <i>i</i> - 1 个恰好含有 2 位小数的浮点数；该行的第 <i>j</i> 个（1 ≤ j &lt; i）数表示 <i>P<sub>i</sub></i><sub>, <i>i</i>+<i>j</i></sub>。<br />
+　　保证上述每个 <i>P<sub>i</sub></i><sub>,<i>j</i></sub> 均是直接调用伪随机数生成函数生成一个 [10, 90] 上的整数，然后除以 100 得到；即可以认为每个数都是从 [0.10, 0.90] 上的所有 2 位小数中，独立等概率取得的。<br />
+　　接下来 <i>m</i> 行，每行包含 <i>n</i> 个 0 或 1 的整数，描述一个初始状态。这 n 个数中的第 <i>i</i> 个如果是 1 表示第 <i>i</i> 张牌最初在小M手中，否则表示这张牌在小Q手中。<br />
+　　保证询问两两不同。</div><div class='pdsec'>输出格式</div><div class='pdcont'>　　输出到标准输出。<br />
+　　输出 <i>m</i> 行，每行输出一个小数部分长度<b>恰好为</b><b>5</b>的浮点数，表示小M的每种初始状况最终获胜的概率<b>四舍五入</b>后的结果。<br />
+　　你答案中的每个数必须和参考答案完全一样才能获得相应测试点的分数。<br />
+　　保证参考答案与真实答案的差值不超过 4 × 10<sup>-6</sup>。</div><div class='pdsec'>样例输入</div><div class='pddata'>3 4<br />
+0.46 0.21<br />
+0.86<br />
+0 0 0<br />
+1 1 0<br />
+0 0 1<br />
+1 1 1</div><div class='pdsec'>样例输出</div><div class='pddata'>0.00000<br />
+0.83488<br />
+0.16512<br />
+1.00000</div><div class='pdsec'>样例说明</div><div class='pdcont'><table cellspacing=0 cellpadding=2px style='border-collapse:collapse;' class='table table-striped table-horver'><tbody><tr  style='border:solid 1.0pt'><td valign="top" style='border:solid 1.0pt'>局面编号<br />
+</td><td valign="top" style='border:solid 1.0pt'>小M的牌<br />
+</td><td valign="top" style='border:solid 1.0pt'>小Q的牌<br />
+</td><td valign="top" style='border:solid 1.0pt'><i>S</i><sub>1</sub><br />
+</td><td valign="top" style='border:solid 1.0pt'><i>S</i><sub>2</sub><br />
+</td><td valign="top" style='border:solid 1.0pt'><i>S</i><sub>3</sub><br />
+</td><td valign="top" style='border:solid 1.0pt'>小M的<br />
+<i>S<sub>i</sub></i>   之和<br />
+</td><td valign="top" style='border:solid 1.0pt'>小Q的<br />
+<i>S<sub>i</sub></i> 之和<br />
+</td></tr><tr  style='border:solid 1.0pt'><td valign="top" style='border:solid 1.0pt'><i>x</i><sub>1</sub><br />
+</td><td valign="top" style='border:solid 1.0pt'>1<br />
+</td><td valign="top" style='border:solid 1.0pt'>2,3<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.67<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.54<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.79<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.67<br />
+</td><td valign="top" style='border:solid 1.0pt'>1.33<br />
+</td></tr><tr  style='border:solid 1.0pt'><td valign="top" style='border:solid 1.0pt'><i>x</i><sub>2</sub><br />
+</td><td valign="top" style='border:solid 1.0pt'>2<br />
+</td><td valign="top" style='border:solid 1.0pt'>1,3<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.46<br />
+</td><td valign="top" style='border:solid 1.0pt'>1.40<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.14<br />
+</td><td valign="top" style='border:solid 1.0pt'>1.40<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.60<br />
+</td></tr><tr  style='border:solid 1.0pt'><td valign="top" style='border:solid 1.0pt'><i>x</i><sub>3</sub><br />
+</td><td valign="top" style='border:solid 1.0pt'>3<br />
+</td><td valign="top" style='border:solid 1.0pt'>1,2<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.46<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.86<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.68<br />
+</td><td valign="top" style='border:solid 1.0pt'>0.68<br />
+</td><td valign="top" style='border:solid 1.0pt'>1.32<br />
+</td></tr></tbody></table>　　我们设 <i>P</i> (<i>x</i>) 为当前局面为 <i>x</i>，最终小M获胜的概率，例如 <i>P</i> (<i>x</i><sub>1</sub>) 表示小M手里的牌为 1 最终获胜的概率。<br />
+　　定义事件 ^<i>x</i> 为将局面 <i>x</i> 中双方手里的牌互换的局面，根据对称性易得 <i>P</i>( ^<i>x</i>)=1 - <i>P</i> (<i>x</i>)。<br />
+　　对于全部牌都在小M手里的情况，小M已经赢得了胜利，此种情况下小M获胜概率为 1；相反，牌全部在小Q手里的话，小M获胜概率为 0。<br />
+　　对于局面 <i>x</i><sub>1</sub>：小M由于只有一张牌 1，因此他必须出这张牌；小Q根据之前的选牌策略，他有 0.54/1.33 的概率出 2，有 0.79/1.33 的概率出 3。若小Q出 2：则小M有 0.46 的概率会赢得这张牌，从而进入局面 ^<i>x</i><sub>3</sub>；有 1-0.46 的概率会输掉手中最后一张 1。若小Q出 3：则小M有 0.21 的概率会赢得这张牌，从而进入局面 ^<i>x</i><sub>2</sub>；有 1-0.21 的概率会输掉最后一张 1。因此，可以得出<br />
+<img src="/problem.DownloadProblemFile.do?pid=2&rand=5B8Hbb" width="628" height="132" /><br />
+<br />
+<br />
+　　同理，可以求出 <i>P</i> (<i>x</i><sub>2</sub>) 和 <i>P</i> (<i>x</i><sub>3</sub>) 的表达式：<br />
+<img src="/problem.DownloadProblemFile.do?pid=3&rand=35G3yL" width="421" height="99" /><br />
+<br />
+<br />
+　　注意到 0.2484/1.33， 0.1204/0.60 等数均小于 1，我们可以将三个式子互相不断代入各自的等式右边，得到一个收敛的级数。对这个级数求和就能求出样例的答案。</div><div class='pdsec'>样例输入</div><div class='pddata'>2 4<br />
+0.34<br />
+0 0<br />
+1 0<br />
+0 1<br />
+1 1</div><div class='pdsec'>样例输出</div><div class='pddata'>0.00000<br />
+0.34000<br />
+0.66000<br />
+1.00000</div><div class='pdsec'>样例输入</div><div class='pddata'>4 8<br />
+0.81 0.34 0.73<br />
+0.85 0.50<br />
+0.22<br />
+0 0 0 0<br />
+1 0 1 0<br />
+0 1 1 0<br />
+1 1 1 0<br />
+0 0 0 1<br />
+1 0 0 1<br />
+0 1 0 1<br />
+1 1 1 1</div><div class='pdsec'>样例输出</div><div class='pddata'>0.00000<br />
+0.61095<br />
+0.38546<br />
+0.80232<br />
+0.19768<br />
+0.61454<br />
+0.38905<br />
+1.00000</div><div class='pdsec'>样例输入</div><div class='pddata'>5 20<br />
+0.45 0.28 0.48 0.59<br />
+0.61 0.88 0.66<br />
+0.19 0.67<br />
+0.11<br />
+0 0 0 0 0<br />
+1 0 0 0 0<br />
+0 1 0 0 0<br />
+0 0 1 0 0<br />
+1 0 1 0 0<br />
+1 0 0 1 0<br />
+1 1 0 1 0<br />
+0 0 1 1 0<br />
+1 0 1 1 0<br />
+1 1 1 1 0<br />
+0 0 0 0 1<br />
+0 1 0 0 1<br />
+1 1 0 0 1<br />
+0 0 1 0 1<br />
+0 1 1 0 1<br />
+0 1 0 1 1<br />
+1 1 0 1 1<br />
+1 0 1 1 1<br />
+0 1 1 1 1<br />
+1 1 1 1 1</div><div class='pdsec'>样例输出</div><div class='pddata'>0.00000<br />
+0.15693<br />
+0.30992<br />
+0.16074<br />
+0.35568<br />
+0.28030<br />
+0.63788<br />
+0.31579<br />
+0.52478<br />
+0.85575<br />
+0.14425<br />
+0.47522<br />
+0.68421<br />
+0.36212<br />
+0.71970<br />
+0.64432<br />
+0.83926<br />
+0.69008<br />
+0.84307<br />
+1.00000</div><div class='pdsec'>评测用例规模与约定</div><div class='pdcont'>　　总共 20 组评测数据。对于第 <i>i</i> 组数据（1 ≤ <i>i</i> ≤ 20）：若 <i>i</i> ≤ 10，<i>n</i>=&lceil;<i>i</i> / 2&rceil;；若 <i>i</i> &gt; 10，<i>n</i> = <i>i</i>-5。</div>
+
+	</td></tr>
+	</table>
+	</div>
+</div>
+<div id="code" class="problembox">
+	<div class="problemheadbar">答题栏</div>
+	<div class="problemdesc">
+	<table class="probtable" style="font-size:14px; text-align:center; background:#c0d6dd;" align="center" width="100%" cellpadding="0" cellspacing="1">
+	<tr><td class="probref">试题编号：</td><td>5</td></tr>
+	<tr><td class="probref">试题名称：</td><td>卡牌游戏</td></tr>
+	<tr><td class="probref">编译环境：</td><td><select id="ulang" onchange="langchange()">
+		</select></td></tr>
+	<tr><td class="probref">答案程序：</td><td class="ucodetd"><textarea id="ucode"></textarea></td></tr>
+	<tr><td class="probref">提交确认：</td><td>
+		以下必须全部满足才能提交：
+		<div id="div_javapackage"><label for="sure_javapackage"><input id="sure_javapackage" type=checkbox />
+			我的程序<b>没有</b>使用package语句来定义包的信息。（如果定义了将无法评测）
+		</label></div>
+		<div id="div_javaclass"><label for="sure_javaclass"><input id="sure_javaclass" type=checkbox />
+			我的程序的主类名称是<b>Main</b>，主类的定义是public class Main。我的程序运行的入口是主类Main中的main函数，定义为public static void main(String[] args)。
+		</label></div>
+		<div id="div_cinc"><label for="sure_cinc"><input id="sure_cinc" type=checkbox />
+			我<b>没有引用stdafx.h</b>这个非标准的头文件。（如果引用了会造成编译错误）
+		</label></div>
+		<div id="div_cmain"><label for="sure_cmain"><input id="sure_cmain" type=checkbox />
+			我程序的运行入口函数是<b>main</b>，main的返回值类型是<b>int</b>，而且main的返回值始终是0。
+		</label></div>
+		<div id="div_javastd"><label for="sure_javastd"><input id="sure_javastd" type=checkbox />
+			我的程序是从<b>标准输入</b>(System.in)中读入数据的（使用Scanner等类来处理System.in的输入视为满足条件），结果是输出到<b>标准输出</b>(System.out)的。
+		</label></div>
+		<div id="div_cstd"><label for="sure_cstd"><input id="sure_cstd" type=checkbox />
+			我的程序是从<b>标准输入</b>中读入数据的(使用cin/scanf等读入)，结果是输出到<b>标准输出</b>的(使用cout/printf等输出)。
+		</label></div>
+		<div id="div_pystd"><label for="sure_pystd"><input id="sure_pystd" type=checkbox />
+			我的程序是从<b>标准输入</b>中读入数据的，结果是输出到<b>标准输出</b>的。
+		</label></div>
+		<div id="div_extra"><label for="sure_extra"><input id="sure_extra" type=checkbox />
+			我的程序中<b>没有</b>“请输入n”之类的输入输出提示，也<b>没有</b>输出中间的结果，所有的输出内容都与题设中的输出格式相对应。我的输出格式（包括换行和大小写等）与题设中输出格式的要求相符。
+		</label></div>
+	</td></tr>
+	</table>
+	</div>
+</div>
+<div class="submitbtns">
+<input type="button" class="orangebtn" value="提　交" onclick="submitclick()" />
+<input id="restorePrevBtn" type="button" class="orangebtn" value="查看上一次提交" onclick="restorePrevCode()" />
+<input type="button" class="orangebtn" value="返回试题列表" onclick="goback()" />
+</div>
+<script type="text/javascript">
+var canLeave = false;
+var _var_prev_code = "";
+var _cprecheck = ["cinc", "cmain", "cstd", "extra"];
+var _javaprecheck = ["javapackage", "javaclass", "javastd", "extra"];
+var _defprecheck = ["cstd", "extra"];
+var _allprecheck = ["javapackage", "javaclass", "cinc", "cmain", "javastd", "cstd", "extra"];
+var _pythonprecheck = ["pystd", "extra"];
+function langchange()
+{
+	var langD = e("ulang");
+	var curprecheck = _defprecheck;
+	if (langD.value == "DC" || langD.value == "DCPP" || langD.value == "CPP11")
+		curprecheck = _cprecheck;
+	else if (langD.value == "JAVA")
+		curprecheck = _javaprecheck;
+	else if (langD.value == "PYTHON" || langD.value == "PYTHON27")
+		curprecheck = _pythonprecheck;
+	for (var i = 0; i < _allprecheck.length; ++i)
+	{
+		var have = false;
+		for (var j = 0; j < curprecheck.length; ++j)
+			if (curprecheck[j]==_allprecheck[i])
+				have = true;
+		if (have)
+		{
+			e("div_"+_allprecheck[i]).style.display = "block";
+		}
+		else
+		{
+			e("div_"+_allprecheck[i]).style.display = "none";
+		}
+	}
+}
+function isCodeChanged()
+{
+	var prevCode = getPrevCode();
+	if (prevCode==null) prevCode = "";
+	var curCode = e("ucode").value;
+	if (curCode == null) curCode = "";
+	return (curCode!="" && curCode!=prevCode);
+}
+
+function codeChange()
+{
+	var prevCode = getPrevCode();
+	if (prevCode==null) prevCode = "";
+	if (e("ucode").value!="" || prevCode=="")
+	{
+		e("restorePrevBtn").className = "orangebtndisable";
+		e("restorePrevBtn").disabled = true;
+	}
+	else
+	{
+		e("restorePrevBtn").className = "orangebtn";
+		e("restorePrevBtn").disabled = false;
+	}
+}
+setInterval(codeChange, 100);
+function submitclick()
+{
+	var vlan = e("ulang").value;
+	var vpid = "4";
+	var vcode = e("ucode").value;
+	if (vlan=="-")
+	{
+		popAlertIcon("提交失败", function (div) { div.innerHTML = "请先选择编译环境。"}, "/images/imgno.png");
+		return ;
+	}
+	
+	var curprecheck = _defprecheck;
+	if (vlan == "DC" || vlan == "DCPP" || vlan == "CPP11")
+		curprecheck = _cprecheck;
+	else if (vlan == "JAVA")
+		curprecheck = _javaprecheck;
+	else if (vlan == "PYTHON" || vlan == "PYTHON27")
+		curprecheck = _pythonprecheck;
+
+	for (var i = 0; i < curprecheck.length; ++i)
+	{
+		if (!e("sure_"+curprecheck[i]).checked)
+		{
+			popAlertIcon("提交失败", function (div) { div.innerHTML = "请确认你的程序满足提交确认中的要求。"}, "/images/imgno.png");
+			return ;
+		}
+	}
+	
+	setData("lang", vlan);
+	portxd("/test.SubmitCode.dt", {lang:vlan, pid:vpid, code:vcode}, function(obj) {
+		if (obj["ret"]=="1")
+		{
+			_var_prev_code = vcode;
+			_cpop = popAlertIcon("提交成功", function (div) { div.innerHTML = "提交成功。您还可以反复提交，在您修改答案后需要再次提交，系统以最后一次提交为准。";
+				var sure = newBtn("确定", newT("",div,"btns"), "bluebtn");
+				sure.onclick = function() { canLeave = true; location.href="/home.page"; };
+			}, "/images/imgyes.png");
+			//location.href = "/mysubmits.page";
+		}
+		else
+		{
+			popAlertIcon("提交失败", function (div) { div.innerHTML = obj["info"]}, "/images/imgno.png");
+			ubtn.enableClick();
+		}
+	});
+}
+
+function showLangs(langs)
+{
+	var _langs = e("ulang");
+	_langs.options.length = 0;
+	var comps = langs.split("/");
+	var id = 0;
+	_langs.options.add(new Option("请选择你的编译环境", "-"));
+	var prevLang = getData("lang");
+	var pprevLang = "";
+	if (pprevLang!="") prevLang = pprevLang;
+	for (st in comps)
+	{
+		++id;
+		_langs.options.add(new Option(id + ". " + toCompileName(comps[st]), comps[st]));
+	}
+	for (var i = 0; i < _langs.options.length; i++)
+		if (_langs.options[i].value == prevLang)
+			_langs.options[i].selected = true;
+	if (_langs.options.length == 2)
+		_langs.options[1].selected = true;
+	langchange();
+}
+showLangs("DC/DCPP/CPP11");
+function getPrevCode()
+{
+	return _var_prev_code;
+}
+function restorePrevCode()
+{
+	var _langs = e("ulang");
+	var prevLang = "";
+	if (e("ucode").value == "")
+	{
+		for (var i = 0; i < _langs.options.length; i++)
+			if (_langs.options[i].value == prevLang)
+				_langs.options[i].selected = true;
+		e("ucode").value = getPrevCode();
+		langchange();
+	}
+}
+
+function checkRestore()
+{
+	var url = location.href;
+	if (url.indexOf("#code")>0)
+		restorePrevCode();
+}
+
+checkRestore();
+
+function goback()
+{
+	location.href = "/home.page";
+}
+
+window.onbeforeunload = function(event){
+    event = event || window.event;
+	if (!canLeave && isCodeChanged())
+	    return "您在答案程序编辑框中有正在编辑的程序，如果离开此内容将丢失，您确定离开吗？";
+}
+
+</script>
+<!-- InstanceEndEditable -->
+<div style="height:1px;"></div>
+	</div>
+</div></div>
+<div class="copyrightbar"><div class="cont">
+	<div class="dcopy">版权所有 中国计算机学会 京ICP备13000930号-4</div>
+</div></div>
+	<iframe id="dframe" src="about:blank" style="width:1px; height:1px; visibility:hidden; border:0px; padding:0px; margin:0px;"></iframe>
+</body>
+<!-- InstanceEnd --></html>

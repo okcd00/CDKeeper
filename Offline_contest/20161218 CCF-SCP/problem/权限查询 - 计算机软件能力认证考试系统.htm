@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/pages.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<!-- InstanceBeginEditable name="doctitle" -->
+
+<title>权限查询 - 计算机软件能力认证考试系统</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="/styles/styles.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="/js/tsinsen2013.js"></script>
+<script language="javascript" type="text/javascript" src="/js/common.js"></script>
+</head>
+
+<body>
+<div id="popall"></div>
+<div class="headbar">
+
+<div class="userbox">
+<div class="usericon"></div><div class="userinfo"><span style="display:block"><span style="color:red;">陈点！</span>欢迎您登录计算机软件能力认证考试系统！</span><span style="display:none">欢迎您来到计算机软件能力认证考试系统！请登录</span>
+</div></div>
+<div class="timebox">
+<div class="timeinfo" id="adminopinfo"></div> &nbsp; <div class="timeinfo" id="info1"></div>
+</div>
+
+</div>
+<script type="text/javascript">
+function getCurrentInfo()
+{
+	var ret = {"alertinfo0":"离比赛结束还剩不到十分钟时间。","alertinfo1":"离比赛结束还剩不到30分钟时间。","alerttime0":"600","alerttime1":"1800","cdate":"2016年12月18日 星期日","extratime":"no","groupid":"C/C++","groupname":"C/C++","idnumber":"422301199405041235","name":"陈点","notuserdisplay":"none","regionname":"北京航空航天大学","ret":"1","roomid":"CSP161201","roomname":"北京航空航天大学","serverdate":"2016年12月18日","servertime":"57464","time":"57465","timeleft":"5538","timepast":"8861","userdisplay":"block","userid":"201608105688","ustatus":"normal"};
+	ret.timec = new Date().getTime();
+	return ret;
+}
+var currentInfo = getCurrentInfo();
+checkUState();
+onticktime();setInterval(onticktime, 1000);
+</script>
+<div class="mainbar"><div class="cont">
+	<div class="maincont"><div style="height:1px;"></div>
+<!-- InstanceBeginEditable name="main" -->
+<div class="infobar"><div class="infobox">
+	<div class="uinfoitem"><div class="inforef">准考证号：</div><div class="infoval">201608105688</div></div>
+	<div class="uinfoitem"><div class="inforef">考试剩余时间：</div><div class="infoval" id="info2"></div></div>
+	<div class="uinfoitem"><div class="inforef">姓名：</div><div class="infoval">陈点</div></div>
+	<div class="uinfoitem"><div class="inforef">当前时间：</div><div class="infoval" id="info4"></div></div>
+</div></div>
+<style>
+.problembox {
+width:925px; margin:0px auto 18px auto;
+}
+.problembox .problemheadbar {
+height:30px; line-height:30px; text-align:center;
+background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7e9f4), to(#b1cbe3)); 
+background:-moz-linear-gradient(top, #d7e9f4, #b1cbe3);
+FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#d7e9f4,endColorStr=#b1cbe3);
+font-weight:bold;
+}
+.problembox .problemdesc {
+}
+.problembox .problemdesc .probtable {
+}
+.problembox .problemdesc .probtable td {
+background:#fff;
+text-align:left;
+padding:12px;
+}
+.problembox .problemdesc .probtable .probref {
+width:100px;
+background:#f8f8f8;
+vertical-align:middle;
+color:#0057a4;
+text-align:center;
+}
+.problembox .problemdesc .probtable .ucodetd {
+padding:0px;
+}
+.problembox .problemdesc .probtable #ucode {
+font-family:"Courier New", Courier, monospace;
+font-size:12px;
+width:780px;
+height:300px;
+padding:8px;
+border:1px solid #777;
+border-radius:4px;
+}
+.submitbtns {
+text-align:center;
+margin:0px auto 85px auto;
+}
+</style>
+<div class="problembox">
+<div style="text-align:right;"><a href="/home.page">返回试题列表</a></div>
+</div>
+<div class="problembox">
+	<div class="problemheadbar">问题描述</div>
+	<div class="problemdesc">
+	<table class="probtable" style="font-size:14px; text-align:center; background:#c0d6dd;" align="center" width="100%" cellpadding="0" cellspacing="1">
+	<tr><td class="probref">试题编号：</td><td>3</td></tr>
+	<tr><td class="probref">试题名称：</td><td>权限查询</td></tr>
+	<tr><td class="probref">时间限制：</td><td>1.0s</td></tr>
+	<tr><td class="probref">内存限制：</td><td>256.0MB</td></tr>
+	<tr><td class="probref">问题描述：</td><td><div class='pdsec'>问题描述</div><div class='pdcont'>　　授权 (authorization) 是各类业务系统不可缺少的组成部分，系统用户通过授权机制获得系统中各个模块的操作权限。<br />
+　　本题中的授权机制是这样设计的：每位用户具有若干角色，每种角色具有若干权限。例如，用户 david 具有 manager 角色，manager 角色有 crm:2 权限，则用户 david 具有 crm:2 权限，也就是 crm 类权限的第 2 等级的权限。<br />
+　　具体地，用户名和角色名称都是由小写字母组成的字符串，长度不超过 32。权限分为分等级权限和不分等级权限两大类。分等级权限由权限类名和权限等级构成，中间用冒号“:”分隔。其中权限类名也是由小写字母组成的字符串，长度不超过 32。权限等级是一位数字，从 0 到 9，数字越大表示权限等级越高。系统规定如果用户具有某类某一等级的权限，那么他也将自动具有该类更低等级的权限。例如在上面的例子中，除 crm:2 外，用户 david 也具有 crm:1 和 crm:0 权限。不分等级权限在描述权限时只有权限类名，没有权限等级（也没有用于分隔的冒号）。<br />
+　　给出系统中用户、角色和权限的描述信息，你的程序需要回答多个关于用户和权限的查询。查询可分为以下几类：<br />
+　　*    不分等级权限的查询：如果权限本身是不分等级的，则查询时不指定等级，返回是否具有该权限；<br />
+　　*    分等级权限的带等级查询：如果权限本身分等级，查询也带等级，则返回是否具有该类的该等级权限；<br />
+　　*    分等级权限的不带等级查询：如果权限本身分等级，查询不带等级，则返回具有该类权限的等级；如果不具有该类的任何等级权限，则返回“否”。</div><div class='pdsec'>输入格式</div><div class='pdcont'>　　输入第一行是一个正整数 <i>p</i>，表示不同的权限类别的数量。紧接着的 <i>p</i> 行被称为 P 段，每行一个字符串，描述各个权限。对于分等级权限，格式为 &lt;category&gt;-&lt;level&gt;，其中 &lt;category&gt; 是权限类名，&lt;level&gt; 是该类权限的最高等级。对于不分等级权限，字符串只包含权限类名。<br />
+　　接下来一行是一个正整数 <i>r</i>，表示不同的角色数量。紧接着的 <i>r</i> 行被称为 R 段，每行描述一种角色，格式为<br />
+　　&lt;role&gt; &lt;s&gt; &lt;privilege 1&gt; &lt;privilege 2&gt; ... &lt;privilege s&gt;<br />
+　　其中 &lt;role&gt; 是角色名称，&lt;s&gt; 表示该角色具有多少种权限。后面 &lt;s&gt; 个字符串描述该角色具有的权限，格式同 P 段。<br />
+　　接下来一行是一个正整数 <i>u</i>，表示用户数量。紧接着的 <i>u</i> 行被称为 U 段，每行描述一个用户，格式为<br />
+　　&lt;user&gt; &lt;t&gt; &lt;role 1&gt; &lt;role 2&gt; ... &lt;role t&gt;<br />
+　　其中 &lt;user&gt; 是用户名，&lt;t&gt; 表示该用户具有多少种角色。后面 &lt;t&gt; 个字符串描述该用户具有的角色。<br />
+　　接下来一行是一个正整数 <i>q</i>，表示权限查询的数量。紧接着的 <i>q</i> 行被称为 Q 段，每行描述一个授权查询，格式为 &lt;user&gt; &lt;privilege&gt;，表示查询用户 &lt;user&gt; 是否具有 &lt;privilege&gt; 权限。如果查询的权限是分等级权限，则查询中的 &lt;privilege&gt; 可指定等级，表示查询该用户是否具有该等级的权限；也可以不指定等级，表示查询该用户具有该权限的等级。对于不分等级权限，只能查询该用户是否具有该权限，查询中不能指定等级。</div><div class='pdsec'>输出格式</div><div class='pdcont'>　　输出共 <i>q</i> 行，每行为 false、true，或者一个数字。false 表示相应的用户不具有相应的权限，true 表示相应的用户具有相应的权限。对于分等级权限的不带等级查询，如果具有权限，则结果是一个数字，表示该用户具有该权限的（最高）等级。如果用户不存在，或者查询的权限没有定义，则应该返回 false。</div><div class='pdsec'>样例输入</div><div class='pddata'>3<br />
+crm:2<br />
+git:3<br />
+game<br />
+4<br />
+hr 1 crm:2<br />
+it 3 crm:1 git:1 game<br />
+dev 2 git:3 game<br />
+qa 1 git:2<br />
+3<br />
+alice 1 hr<br />
+bob 2 it qa<br />
+charlie 1 dev<br />
+9<br />
+alice game<br />
+alice crm:2<br />
+alice git:0<br />
+bob git<br />
+bob poweroff<br />
+charlie game<br />
+charlie crm<br />
+charlie git:3<br />
+malice game</div><div class='pdsec'>样例输出</div><div class='pddata'>false<br />
+true<br />
+false<br />
+2<br />
+false<br />
+true<br />
+false<br />
+true<br />
+false</div><div class='pdsec'>样例说明</div><div class='pdcont'>　　样例输入描述的场景中，各个用户实际的权限如下：<br />
+　　* 用户 alice 具有 crm:2 权限<br />
+　　* 用户 bob 具有 crm:1、git:2 和 game 权限<br />
+　　* 用户 charlie 具有 git:3 和 game 权限<br />
+　　* 用户 malice 未描述，因此不具有任何权限</div><div class='pdsec'>评测用例规模与约定</div><div class='pdcont'>　　评测用例规模：<br />
+　　*    1 ≤ <i>p</i>, <i>r</i>, <i>u</i> ≤ 100<br />
+　　*    1 ≤ <i>q</i> ≤ 10&thinsp;000<br />
+　　*    每个用户具有的角色数不超过 10，每种角色具有的权限种类不超过 10<br />
+　　约定：<br />
+　　*    输入保证合法性，包括：<br />
+　　1) 角色对应的权限列表（R 段）中的权限都是之前（P 段）出现过的，权限可以重复出现，如果带等级的权限重复出现，以等级最高的为准<br />
+　　2) 用户对应的角色列表（U 段）中的角色都是之前（R 段）出现过的，如果多个角色都具有某一分等级权限，以等级最高的为准<br />
+　　3) 查询（Q 段）中的用户名和权限类名不保证在之前（U 段和 P 段）出现过<br />
+　　*    前 20% 的评测用例只有一种角色<br />
+　　*    前 50% 的评测用例权限都是不分等级的，查询也都不带等级</div>
+
+	</td></tr>
+	</table>
+	</div>
+</div>
+<div id="code" class="problembox">
+	<div class="problemheadbar">答题栏</div>
+	<div class="problemdesc">
+	<table class="probtable" style="font-size:14px; text-align:center; background:#c0d6dd;" align="center" width="100%" cellpadding="0" cellspacing="1">
+	<tr><td class="probref">试题编号：</td><td>3</td></tr>
+	<tr><td class="probref">试题名称：</td><td>权限查询</td></tr>
+	<tr><td class="probref">编译环境：</td><td><select id="ulang" onchange="langchange()">
+		</select></td></tr>
+	<tr><td class="probref">答案程序：</td><td class="ucodetd"><textarea id="ucode"></textarea></td></tr>
+	<tr><td class="probref">提交确认：</td><td>
+		以下必须全部满足才能提交：
+		<div id="div_javapackage"><label for="sure_javapackage"><input id="sure_javapackage" type=checkbox />
+			我的程序<b>没有</b>使用package语句来定义包的信息。（如果定义了将无法评测）
+		</label></div>
+		<div id="div_javaclass"><label for="sure_javaclass"><input id="sure_javaclass" type=checkbox />
+			我的程序的主类名称是<b>Main</b>，主类的定义是public class Main。我的程序运行的入口是主类Main中的main函数，定义为public static void main(String[] args)。
+		</label></div>
+		<div id="div_cinc"><label for="sure_cinc"><input id="sure_cinc" type=checkbox />
+			我<b>没有引用stdafx.h</b>这个非标准的头文件。（如果引用了会造成编译错误）
+		</label></div>
+		<div id="div_cmain"><label for="sure_cmain"><input id="sure_cmain" type=checkbox />
+			我程序的运行入口函数是<b>main</b>，main的返回值类型是<b>int</b>，而且main的返回值始终是0。
+		</label></div>
+		<div id="div_javastd"><label for="sure_javastd"><input id="sure_javastd" type=checkbox />
+			我的程序是从<b>标准输入</b>(System.in)中读入数据的（使用Scanner等类来处理System.in的输入视为满足条件），结果是输出到<b>标准输出</b>(System.out)的。
+		</label></div>
+		<div id="div_cstd"><label for="sure_cstd"><input id="sure_cstd" type=checkbox />
+			我的程序是从<b>标准输入</b>中读入数据的(使用cin/scanf等读入)，结果是输出到<b>标准输出</b>的(使用cout/printf等输出)。
+		</label></div>
+		<div id="div_pystd"><label for="sure_pystd"><input id="sure_pystd" type=checkbox />
+			我的程序是从<b>标准输入</b>中读入数据的，结果是输出到<b>标准输出</b>的。
+		</label></div>
+		<div id="div_extra"><label for="sure_extra"><input id="sure_extra" type=checkbox />
+			我的程序中<b>没有</b>“请输入n”之类的输入输出提示，也<b>没有</b>输出中间的结果，所有的输出内容都与题设中的输出格式相对应。我的输出格式（包括换行和大小写等）与题设中输出格式的要求相符。
+		</label></div>
+	</td></tr>
+	</table>
+	</div>
+</div>
+<div class="submitbtns">
+<input type="button" class="orangebtn" value="提　交" onclick="submitclick()" />
+<input id="restorePrevBtn" type="button" class="orangebtn" value="查看上一次提交" onclick="restorePrevCode()" />
+<input type="button" class="orangebtn" value="返回试题列表" onclick="goback()" />
+</div>
+<script type="text/javascript">
+var canLeave = false;
+var _var_prev_code = "#include <map>\n#include <cmath>\n#include <queue>\n#include <cstdio>\n#include <string>\n#include <cstring>\n#include <iostream>\n#include <algorithm>\nusing namespace std;\n\n// Define Un-leveled is -1; level +1; Ignored 0;\ntypedef pair<string, string> pss;\ntypedef map<string, int> psi;\ntypedef map<pss, int> mpi;\n\nmpi ra; //roleAuthor;\nmpi ua; //userAuthor;\n\n#define MAXN 233\n#define MP(a,b) make_pair(a,b)\n\nvoid update(string user, string role, string cate)\n{\n\tint original_level = ua[make_pair(user, cate)];\n\tint current_level = ra[make_pair(role, cate)];\n\tua[make_pair(user, cate)] = (\n\t\tabs(current_level) >= abs(original_level)?\n\t\tcurrent_level : original_level\n\t);\n\t// cout<<\"Update \"<<user<<\":\"<<role<<\":\"<<cate<<endl;\n\t// cout<<original_level<<\" \"<<current_level<<endl;\n}\n\nint split(string s, char delim = ' ')\n{\n\tint ret = s.find(delim);\n\treturn ret;\n}\n\nint main()\n{\n\tfreopen(\"C.txt\",\"r\",stdin);\n\tstring str;\n\tint i,j,k;\n\t// pss testPair = make_pair(\"chendian\", \"CCFTest\");\n\t// cout << author[testPair]; // Initial is 0\n\t\n\tint p; cin>>p;\n\tstring anames[MAXN];\n\tfor(i=0;i<p;i++)\n\t{\n\t\tcin>>str;\n\t\tint sp = split(str,':');\n\t\t//cout<<str<<\" -> \"<<split(str,':')<<endl;\n\t\tif (sp != -1) anames[i] = str.substr(0,sp);\n\t\telse anames[i] = str;\n\t}\n\t\n\t// R-Para\n\tint r; cin>>r;\n\tstring rname; //roleName\n\tfor(i=0;i<r;i++)\n\t{\n\t\tint s;\n\t\tcin>>rname>>s;\n\t\tfor(j=0;j<s;j++)\n\t\t{\n\t\t\tcin>>str;\n\t\t\tint level = 0;\n\t\t\tint sp = split(str,':');\t\t\t\n\t\t\tstring category = \"\";\n\t\t\tif (sp != -1)\n\t\t\t{\n\t\t\t\tcategory = str.substr(0,sp);\n\t\t\t\tlevel = str.substr(sp+1)[0] - '0';\n\t\t\t\t// cout << category <<\":\"<< level << endl;\n\t\t\t\tra[make_pair(rname, category)] = level+1;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tcategory = str; // cate\n\t\t\t\tra[make_pair(rname, category)] = -1;\n\t\t\t}\n\t\t}\n\t}\n\t\n\tint u; cin>>u;\n\tstring uname; //userName\n\tfor(i=0;i<u;i++)\n\t{\n\t\tint s;\n\t\tcin>>uname>>s;\n\t\tfor(j=0;j<s;j++)\n\t\t{\n\t\t\tcin>>str; // role\n\t\t\tfor(k=0;k<p;k++)\n\t\t\t{\n\t\t\t\tupdate(uname, str, anames[k]);\n\t\t\t\t// cout<<uname<<\":\"<<anames[k]<<\":\"<<ua[make_pair(uname, anames[k])]<<endl;\n\t\t\t}\n\t\t}\n\t}\n\t\n\t// Q-Para\n\tint q; cin>>q;\n\tstring qname; //queryName\n\tfor(i=0;i<q;i++)\n\t{\n\t\tcin>>qname>>str;\n\t\tint sp = split(str,':');\n\t\tstring cate = \"\";\n\t\tcate = (sp != -1)?str.substr(0,sp):str;\n\t\t// cout<<qname<<\":\"<<cate<<endl;\n\t\tif(sp == -1)\n\t\t{\n\t\t\tint lev = ua[make_pair(qname,cate)];\n\t\t\tif(lev==0) cout<<\"false\"<<endl;\n\t\t\telse if(lev==-1) cout<<\"true\"<<endl;\n\t\t\telse cout<<lev-1<<endl;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tint lev = ua[make_pair(qname,cate)]-1;\n\t\t\tint qlevel = str.substr(sp+1)[0]-'0';\n\t\t\t//cout<<lev<<\":\"<<qlevel<<endl;\n\t\t\tif(lev>=qlevel) cout<<\"true\"<<endl;\n\t\t\telse cout<<\"false\"<<endl;\n\t\t}\n\t}\n\t\n\treturn 0;\n}\n";
+var _cprecheck = ["cinc", "cmain", "cstd", "extra"];
+var _javaprecheck = ["javapackage", "javaclass", "javastd", "extra"];
+var _defprecheck = ["cstd", "extra"];
+var _allprecheck = ["javapackage", "javaclass", "cinc", "cmain", "javastd", "cstd", "extra"];
+var _pythonprecheck = ["pystd", "extra"];
+function langchange()
+{
+	var langD = e("ulang");
+	var curprecheck = _defprecheck;
+	if (langD.value == "DC" || langD.value == "DCPP" || langD.value == "CPP11")
+		curprecheck = _cprecheck;
+	else if (langD.value == "JAVA")
+		curprecheck = _javaprecheck;
+	else if (langD.value == "PYTHON" || langD.value == "PYTHON27")
+		curprecheck = _pythonprecheck;
+	for (var i = 0; i < _allprecheck.length; ++i)
+	{
+		var have = false;
+		for (var j = 0; j < curprecheck.length; ++j)
+			if (curprecheck[j]==_allprecheck[i])
+				have = true;
+		if (have)
+		{
+			e("div_"+_allprecheck[i]).style.display = "block";
+		}
+		else
+		{
+			e("div_"+_allprecheck[i]).style.display = "none";
+		}
+	}
+}
+function isCodeChanged()
+{
+	var prevCode = getPrevCode();
+	if (prevCode==null) prevCode = "";
+	var curCode = e("ucode").value;
+	if (curCode == null) curCode = "";
+	return (curCode!="" && curCode!=prevCode);
+}
+
+function codeChange()
+{
+	var prevCode = getPrevCode();
+	if (prevCode==null) prevCode = "";
+	if (e("ucode").value!="" || prevCode=="")
+	{
+		e("restorePrevBtn").className = "orangebtndisable";
+		e("restorePrevBtn").disabled = true;
+	}
+	else
+	{
+		e("restorePrevBtn").className = "orangebtn";
+		e("restorePrevBtn").disabled = false;
+	}
+}
+setInterval(codeChange, 100);
+function submitclick()
+{
+	var vlan = e("ulang").value;
+	var vpid = "2";
+	var vcode = e("ucode").value;
+	if (vlan=="-")
+	{
+		popAlertIcon("提交失败", function (div) { div.innerHTML = "请先选择编译环境。"}, "/images/imgno.png");
+		return ;
+	}
+	
+	var curprecheck = _defprecheck;
+	if (vlan == "DC" || vlan == "DCPP" || vlan == "CPP11")
+		curprecheck = _cprecheck;
+	else if (vlan == "JAVA")
+		curprecheck = _javaprecheck;
+	else if (vlan == "PYTHON" || vlan == "PYTHON27")
+		curprecheck = _pythonprecheck;
+
+	for (var i = 0; i < curprecheck.length; ++i)
+	{
+		if (!e("sure_"+curprecheck[i]).checked)
+		{
+			popAlertIcon("提交失败", function (div) { div.innerHTML = "请确认你的程序满足提交确认中的要求。"}, "/images/imgno.png");
+			return ;
+		}
+	}
+	
+	setData("lang", vlan);
+	portxd("/test.SubmitCode.dt", {lang:vlan, pid:vpid, code:vcode}, function(obj) {
+		if (obj["ret"]=="1")
+		{
+			_var_prev_code = vcode;
+			_cpop = popAlertIcon("提交成功", function (div) { div.innerHTML = "提交成功。您还可以反复提交，在您修改答案后需要再次提交，系统以最后一次提交为准。";
+				var sure = newBtn("确定", newT("",div,"btns"), "bluebtn");
+				sure.onclick = function() { canLeave = true; location.href="/home.page"; };
+			}, "/images/imgyes.png");
+			//location.href = "/mysubmits.page";
+		}
+		else
+		{
+			popAlertIcon("提交失败", function (div) { div.innerHTML = obj["info"]}, "/images/imgno.png");
+			ubtn.enableClick();
+		}
+	});
+}
+
+function showLangs(langs)
+{
+	var _langs = e("ulang");
+	_langs.options.length = 0;
+	var comps = langs.split("/");
+	var id = 0;
+	_langs.options.add(new Option("请选择你的编译环境", "-"));
+	var prevLang = getData("lang");
+	var pprevLang = "DCPP";
+	if (pprevLang!="") prevLang = pprevLang;
+	for (st in comps)
+	{
+		++id;
+		_langs.options.add(new Option(id + ". " + toCompileName(comps[st]), comps[st]));
+	}
+	for (var i = 0; i < _langs.options.length; i++)
+		if (_langs.options[i].value == prevLang)
+			_langs.options[i].selected = true;
+	if (_langs.options.length == 2)
+		_langs.options[1].selected = true;
+	langchange();
+}
+showLangs("DC/DCPP/CPP11");
+function getPrevCode()
+{
+	return _var_prev_code;
+}
+function restorePrevCode()
+{
+	var _langs = e("ulang");
+	var prevLang = "DCPP";
+	if (e("ucode").value == "")
+	{
+		for (var i = 0; i < _langs.options.length; i++)
+			if (_langs.options[i].value == prevLang)
+				_langs.options[i].selected = true;
+		e("ucode").value = getPrevCode();
+		langchange();
+	}
+}
+
+function checkRestore()
+{
+	var url = location.href;
+	if (url.indexOf("#code")>0)
+		restorePrevCode();
+}
+
+checkRestore();
+
+function goback()
+{
+	location.href = "/home.page";
+}
+
+window.onbeforeunload = function(event){
+    event = event || window.event;
+	if (!canLeave && isCodeChanged())
+	    return "您在答案程序编辑框中有正在编辑的程序，如果离开此内容将丢失，您确定离开吗？";
+}
+
+</script>
+<!-- InstanceEndEditable -->
+<div style="height:1px;"></div>
+	</div>
+</div></div>
+<div class="copyrightbar"><div class="cont">
+	<div class="dcopy">版权所有 中国计算机学会 京ICP备13000930号-4</div>
+</div></div>
+	<iframe id="dframe" src="about:blank" style="width:1px; height:1px; visibility:hidden; border:0px; padding:0px; margin:0px;"></iframe>
+</body>
+<!-- InstanceEnd --></html>
