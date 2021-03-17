@@ -1,3 +1,8 @@
+# Directories
+.catalyst
+.current
+.vscode
+
 # Prerequisites
 *.d
 
