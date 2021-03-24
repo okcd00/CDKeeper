@@ -2,10 +2,10 @@ import os
 import sys 
 from io import BytesIO, IOBase
  
-BUFSIZE = 8192
- 
+
 class FastIO(IOBase):
     newlines = 0
+    BUFSIZE = 8192
  
     def __init__(self, file):
         self._fd = file.fileno()
@@ -15,7 +15,7 @@ class FastIO(IOBase):
  
     def read(self):
         while True:
-            b = os.read(self._fd, max(os.fstat(self._fd).st_size, BUFSIZE))
+            b = os.read(self._fd, max(os.fstat(self._fd).st_size, self.BUFSIZE))
             if not b:
                 break
             ptr = self.buffer.tell()
@@ -25,7 +25,7 @@ class FastIO(IOBase):
  
     def readline(self):
         while self.newlines == 0:
-            b = os.read(self._fd, max(os.fstat(self._fd).st_size, BUFSIZE))
+            b = os.read(self._fd, max(os.fstat(self._fd).st_size, self.BUFSIZE))
             self.newlines = b.count(b"\n") + (not b)
             ptr = self.buffer.tell()
             self.buffer.seek(0, 2), self.buffer.write(b), self.buffer.seek(ptr)
