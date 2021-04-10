@@ -59,8 +59,32 @@ def read_int_tuple():
 def read_int(): 
     return int(input())
 
+DEBUG = True
 
 # Problem 
+if DEBUG:
+    sys.stdin = open('./Offer_exam/20210326 GCJ/Round 1A/C.in', 'r')
+
+def neg(_c):
+    if _c == 'T':
+        return 'F'
+    else:
+        return 'T'
+
 t = read_int()
 for case_idx in range(t):
-    n = read_int()
+    ans = 0
+    n, q = read_int_list()
+    a, s = input().split()
+    a = a.strip()
+    s = int(s)
+    
+    if n == 1:
+        if s / 2. > 0.:
+            ans = q
+            seq = a
+        else:
+            ans = n - q
+            seq = [neg(_c) for _c in a]
+
+    print("Case #{}: {} {}/{}".format(case_idx + 1, seq, ans, 1))

@@ -59,8 +59,38 @@ def read_int_tuple():
 def read_int(): 
     return int(input())
 
+DEBUG = False
 
 # Problem 
+if DEBUG:
+    sys.stdin = open('./Offer_exam/20210326 GCJ/Round 1A/B.in', 'r')
+
 t = read_int()
 for case_idx in range(t):
-    n = read_int()
+    total = 0
+    m = read_int()
+    a = []
+    for _ in range(m):
+        _p, _n = read_int_list()
+        total += _p * _n
+        a.extend([_p] * _n)
+    
+    dp = [0] * 50010
+    vsum = [0] * 50010
+    dp[1] = 1
+
+    for i in range(len(a)):
+        for j in range(total//a[i], 0, -1):
+            if dp[j] and dp[j * a[i]] == 0:
+                dp[j * a[i]] = 1
+                # if vsum[j * a[i]] != 0 and vsum[j*a[i]] != vsum[j] + a[i]:
+                #     print(vsum[j * a[i]], vsum[j] + a[i])
+                vsum[j * a[i]] = vsum[j] + a[i]
+    
+    ans = 0
+    for j in range(total, 0, -1):
+        if dp[j] and j == total - vsum[j]:
+            ans = j
+            break
+
+    print("Case #{}: {}".format(case_idx + 1, ans))
