@@ -66,18 +66,74 @@ for case_idx in range(t):
     x, y, s = input().split()
     x, y = int(x), int(y)
     ans = 0
+    blanks = 0
     pivot = 'X'
     for idx, c in enumerate(s):
         if c == '?':
+            blanks += 1 
             continue
+        if pivot == 'X':
+            # 1: ?J -> CJ -> 0 more pair + x?
+            # 1: ?C -> JC -> 0 more pair + y?
+            # 2: ??J -> JCJ / CJJ -> 0~1 more pair + x?
+            # 2: ??C -> CJC / JCC -> 0~1 more pair + y?
+            # 3: ???J -> CJCJ / JCCJ -> 0~1 more pair + x
+            # 3: ???C -> CJCC / JCJC -> 0~1 more pair + y
+            if c == 'J':
+                if x < 0:
+                    # ans += x
+                    pivot = 'C'
+                else:
+                    pivot = 'J'
+                blanks -= 1
+            if c == 'C':
+                if y < 0:
+                    # ans += y
+                    pivot = 'J'
+                else:
+                    pivot = 'C'
+                blanks -= 1
+        # 1: C?J -> 0 more
+        # 2: C??J -> CJCJ / CJCJ -> 1 more pair
+        # 3: C???J -> CJCJJ / CCJCJ -> 1 more pair
+        # 4: C????J -> CJCJCJ -> 2 more pair
+        # J..C / C..J are the same
+        # 2: C??C -> CJCC / CCJC -> 1 more pair
+        # 3: C???C -> CJCJC / CCJCC -> 0~2 more pair
+        if x + y < 0:
+            if pivot == c:
+                ans += ((blanks + 1) // 2) * (x + y)  # mid bonus
+            else:
+                ans += (blanks // 2) * (x + y)  # mid bonus
+            blanks = 0
         if c != pivot:
             pr = pivot + c
-            if pivot == 'X':
-                pivot = c
-            elif pr == 'CJ':
+            if pr == 'CJ':
                 ans += x
                 pivot = c
             elif pr == 'JC':
                 ans += y
                 pivot = c
+    else:
+        if blanks:
+            # 1: J? -> 0 + y?
+            # 1: C? -> 0 + x?
+            # 2: J?? -> 0~1 or y?
+            # 2: C?? -> 0~1 or x?
+            if pivot == 'J':
+                if y < 0:
+                    ans += y
+                    # c = 'C'
+                blanks -= 1
+            if pivot == 'C':
+                if x < 0:
+                    ans += x
+                    # c = 'J'
+                blanks -= 1
+            if x + y < 0:
+                if pivot == c:
+                    ans += ((blanks + 1) // 2) * (x + y)  # mid bonus
+                else:
+                    ans += (blanks // 2) * (x + y)  # mid bonus
+                blanks = 0
     print("Case #{}: {}".format(case_idx + 1, ans))
