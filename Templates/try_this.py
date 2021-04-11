@@ -100,7 +100,7 @@ FACTI_ARR = []
 
 def fact(x, MOD=0):
     """
-    预处理模特定数的阶乘表，输出 x 的阶乘
+    fact(x) = x! = x * (x-1) * ... * 2 * 1
     """
     if MOD:
         while x >= len(FACT_ARR):
@@ -113,8 +113,7 @@ def fact(x, MOD=0):
 
 def ifact(x, MOD=0):
     """
-    预处理模特定数的阶乘表，输出 x 的阶乘的逆
-    除以 x! 等效于 乘上 x! 的逆
+    a * ifact(x) == a / fact(x)
     """
     global FACTI_ARR
     fact(x, MOD)
@@ -176,7 +175,7 @@ def lowbit(n):
  
 
 class BIT:
-    """树状数组"""
+    """Shu Zhuang Shu Zu"""
     def __init__(self, arr):
         self.arr = arr
         self.n = len(arr) - 1
@@ -195,10 +194,10 @@ class BIT:
  
 
 class ST:
-    """倍增RMQ"""
+    """BeiZeng RMQ"""
     def __init__(self,arr):  # n != 0
         n = len(arr)
-        mx = n.bit_length()  # 取不到
+        mx = n.bit_length()  # not reachable
         self.st = [[0] * mx for i in range(n)]
         for i in range(n):
             self.st[i][0] = arr[i]
@@ -214,7 +213,7 @@ class ST:
 
    
 class UFS: 
-    """并查集"""
+    """Union Find Set"""
     def __init__(self, n):
         self.parent = [i for i in range(n)]
         self.ranks = [0] * n
@@ -270,7 +269,7 @@ def dij(s,graph):
     return d
  
 
-def bell(s,g):#bellman-Ford
+def bell(s,g):  # bellman-Ford
     dis=AI(n,inf)
     dis[s]=0
     for i in range(n-1):
@@ -301,7 +300,7 @@ def lis(nums):
     return len(res)
  
 
-def RP(nums):#逆序对
+def RP(nums): # Reverse Pair
     n = len(nums)
     s=set(nums)
     d={}
