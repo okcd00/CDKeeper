@@ -1,7 +1,7 @@
 import queue as Q 
 
 class Solution:
-    def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
+    def assignTasks(self, servers, tasks):
         ans = []
         que = Q.PriorityQueue()
         waiting = Q.PriorityQueue()
