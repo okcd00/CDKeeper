@@ -13,8 +13,9 @@ class SegmentTree():
         self.tree = [Tree() for i in range(10*4)]
 
     def build(self, cur, l, r):
-        # 建树，用cur<<1访问左子树，cur<<1|1访问右子树，位运算操作很方便
-        self.tree[cur].l, self.tree[cur].r, self.tree[cur].lazy, self.tree[cur].val = l, r, 0, 0
+        # 建树，用 cur<<1 访问左子树，cur<<1|1 访问右子树，位运算操作很方便
+        self.tree[cur].l, self.tree[cur].r, = l, r 
+        self.tree[cur].lazy, self.tree[cur].val = 0, 0
         # 当 l == r 的时候结束递归
         if l < r:
             mid = l + r >> 1

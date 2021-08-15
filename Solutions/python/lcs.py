@@ -1,7 +1,5 @@
-# https://blog.csdn.net/weixin_42018258/article/details/80670067
-
-
 def LCS(s1, s2, debug=False, output_index=False):
+    # https://blog.csdn.net/weixin_42018258/article/details/80670067
     size1 = len(s1) + 1
     size2 = len(s2) + 1
     # 程序多加一行，一列，方便后面代码编写
