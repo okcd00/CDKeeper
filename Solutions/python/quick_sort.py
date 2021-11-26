@@ -1,25 +1,25 @@
-def quick_sort_simple(data):
+def quick_sort_simple(nums):
     # sort the list
-    if len(data) >= 2:
-        pivot = data[0]  # any number is fine 
+    if len(nums) >= 2:
+        pivot = nums[0]  # any number is fine 
         left, right = [], []
-        for num in data[1:]:
+        for num in nums[1:]:
             if num >= pivot:
                 right.append(num)
             else:
                 left.append(num)
         return quick_sort(left) + [pivot] + quick_sort(right)
     else:
-        return data
+        return nums
 
 
-def quick_find_simple(data, k):
+def quick_find_simple(nums, k):
     # find the k-th smallest number
-    if len(data) >= 2:
+    if len(nums) >= 2:
         # any number is fine
-        mid = data[0]
+        mid = nums[0]
         left, right = [], []
-        for num in data[1:]:
+        for num in nums[1:]:
             if num >= mid:
                 right.append(num)
             else:
@@ -31,38 +31,8 @@ def quick_find_simple(data, k):
         else:  # len(left) > k - 1
             return quick_find_simple(left, k=k)
     else:
-        return data[0]
-
-
-def quick_sort(data_list, l=None, r=None):
-    # from Weimin Yan's "Data Structure"
-    if l is None and r is None:
-        l, r = 0, len(data_list) - 1
-
-    def paritition(data, low, high):
-        pivot = data[low] + 0
-        while low < high:
-            while low < high and data[high] >= pivot:
-                high -= 1
-            # set data[low] as the right-most num < data[pivot]
-            # print(f"data[{low}]: {data[low]} -> {data[high]}")
-            data[low] = data[high]  
-            while low < high and data[low] <= pivot:
-                low += 1
-            # set data[high] as the left-most num > pivot
-            # print(f"data[{high}]: {data[high]} -> {data[low]}")
-            data[high] = data[low]  
-        # print(f"data[{low}]: {data[low]} -> {pivot}")
-        data[low] = pivot          
-        return low
-
-    if l < r:
-        p = paritition(data_list, l, r)
-        quick_sort(data_list, l, p-1)
-        quick_sort(data_list, p+1, r)
-    
-    return data_list
-
+        return nums[0]
+        
 
 class QuickSort:
     def __init__(self):
@@ -101,6 +71,24 @@ class QuickSort:
                 # print("->", nums)
         nums[pivot], nums[r] = nums[r], nums[pivot]
         return pivot
+
+    def paritition_twoway(self, nums, low, high):
+        # from Weimin Yan's "nums Structure"
+        pivot = nums[low] + 0
+        while low < high:
+            while low < high and nums[high] >= pivot:
+                high -= 1
+            # set nums[low] as the right-most num < nums[pivot]
+            # print(f"nums[{low}]: {nums[low]} -> {nums[high]}")
+            nums[low] = nums[high]  
+            while low < high and nums[low] <= pivot:
+                low += 1
+            # set nums[high] as the left-most num > pivot
+            # print(f"nums[{high}]: {nums[high]} -> {nums[low]}")
+            nums[high] = nums[low]  
+        # print(f"nums[{low}]: {nums[low]} -> {pivot}")
+        nums[low] = pivot          
+        return low
 
 
 if __name__ == "__main__":
