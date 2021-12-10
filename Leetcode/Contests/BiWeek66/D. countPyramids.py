@@ -1,7 +1,6 @@
 class Solution:
-    def countPyramids(self, grid: List[List[int]]) -> int:
+    def countPyramids(self, grid) -> int:
         ret = 0
-        level = 1
         
         # upper-left
         ul = [[0 for _ in range(len(grid[0]))] for _ in range(len(grid))]
@@ -13,8 +12,6 @@ class Solution:
                     if grid[r][c-1] == 0:
                         continue
                     ul[r][c] = min(ul[r-1][c], ul[r][c-1]) + 1
-                    # if ul[r-1][c] == ul[r][c-1]:
-                    #     ul[r][c] = ul[r][c-1] + 1
         print(ul)
         
         # upper-right
