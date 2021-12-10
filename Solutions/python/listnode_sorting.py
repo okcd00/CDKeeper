@@ -34,6 +34,7 @@ class ListNode:
         return new_head
 
     def __repr__(self):
+        # print(self) does not change it
         # => 1-2-2-3-4-4-6
         val_list = []
         cur = self
@@ -111,6 +112,7 @@ class ListNodeSort:
 if __name__ == "__main__":
     l1 = ListNode([1,2,3,4])
     l2 = ListNode([2,4,6])
+    print(l1, l2)
     print(l1, l2)
     print(l1.reverse(l1))
 
