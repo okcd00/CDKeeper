@@ -1,24 +1,39 @@
 # Definition for singly-linked list.
 class ListNode:
-    def __init__(self, val=-1, next=None):
+    def __init__(self, val, next=None):
         self.val = val
         self.next = next
+
+
+class CDListNode(ListNode):
+    def __init__(self, val=-1, next=None):
         if isinstance(val, list):
-            self.init_with_list(val)
+            if len(val) > 0:
+                self.init_with_list(val)
+            else:
+                self.is_empty = True
+        elif isinstance(val, ListNode):
+            super().__init__(val.val, val.next)
+        else:
+            super().__init__(val, next)
     
     def init_with_list(self, val_list):
-        head = ListNode()
+        head = ListNode(-1)
         cur = head
         for v in val_list:
             cur.next = ListNode(v)
             cur = cur.next
-        self.val = head.next.val
-        self.next = head.next.next
+        if head.next:
+            self.val = head.next.val
+            self.next = head.next.next
+        return self
 
     def reverse(self, head=None):
         # inplace operation
         if head is None:
             head = self
+        if head.val is None:
+            return None
         new_head = ListNode(head.val)  # 1->NULL
         head = head.next  # head: 2->3->4->5->NULL
         while head:
@@ -33,15 +48,34 @@ class ListNode:
         self.next = new_head.next
         return new_head
 
+    def to_listnode(self, head=None):
+        if head is None:
+            head = self
+        if head.val is None:
+            return None
+        return ListNode(head.val, head.next)
+
+    def to_list(self, head=None):
+        if head is None:
+            head = self
+        val_list = []
+        cur = head
+        while cur:
+            if cur.val is None:
+                break
+            val_list.append(cur.val)
+            cur = cur.next
+        return val_list
+
+    def to_string(self, head=None, delim='-'):
+        if head is None:
+            head = self
+        return delim.join(map(str, self.to_list()))
+
     def __repr__(self):
         # print(self) does not change it
         # => 1-2-2-3-4-4-6
-        val_list = []
-        cur = self
-        while cur:
-            val_list.append(str(cur.val))
-            cur = cur.next
-        return '-'.join(val_list)
+        return self.to_string()
 
 
 class ListNodeSort:
@@ -99,7 +133,7 @@ class ListNodeSort:
                 pq.put((ln.val, idx))
         
         while not pq.empty():
-            val, idx = pq.get()
+            _, idx = pq.get()
             pivot.next = lists[idx]
             lists[idx] = lists[idx].next
             if lists[idx]:
@@ -110,12 +144,12 @@ class ListNodeSort:
 
 
 if __name__ == "__main__":
-    l1 = ListNode([1,2,3,4])
-    l2 = ListNode([2,4,6])
+    l1 = CDListNode([1,2,3,4])
+    l2 = CDListNode([2,4,6])
     print(l1, l2)
     print(l1, l2)
-    print(l1.reverse(l1))
+    print(l1.to_list(l1.reverse()))
 
     lns = ListNodeSort()
-    l1 = ListNode([1,2,3,4])
+    l1 = CDListNode([1,2,3,4])
     print(lns.merge(l1, l2))
