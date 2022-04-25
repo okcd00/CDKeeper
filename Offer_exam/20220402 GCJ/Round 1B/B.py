@@ -61,7 +61,7 @@ def read_int():
 
 
 t = read_int()
-INF = 99999999999
+INF = int(1e18)
 from pprint import pprint
 
 for case_idx in range(t):
@@ -72,7 +72,7 @@ for case_idx in range(t):
         x.append(sorted(read_int_list()))
     # pprint(x)
 
-    dp = [[INF for _ in range(p+1)] for _ in range(n+1)]
+    dp = [[0 for _ in range(p+1)]] + [[INF for _ in range(p+1)] for _ in range(n)]
     for i in range(1, n+1):
         for j in range(0, p):
             for k in range(0, p):
