@@ -1,5 +1,6 @@
 """
 https://leetcode.cn/problems/happy-number/
+
 编写一个算法来判断一个数 n 是不是快乐数。
 
 「快乐数」 定义为：
