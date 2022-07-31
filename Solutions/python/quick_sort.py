@@ -8,7 +8,7 @@ def quick_sort_simple(nums):
                 right.append(num)
             else:
                 left.append(num)
-        return quick_sort(left) + [pivot] + quick_sort(right)
+        return quick_sort_simple(left) + [pivot] + quick_sort_simple(right)
     else:
         return nums
 
@@ -93,5 +93,5 @@ class QuickSort:
 
 if __name__ == "__main__":
     dat = [2,3,4,51,1,1,53,26,3,4,16]
-    print(quick_sort(dat))
+    print(quick_sort_simple(dat))
     print(quick_find_simple(dat, k=3))
