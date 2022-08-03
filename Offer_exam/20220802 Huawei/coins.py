@@ -1,20 +1,4 @@
 class CoinsCombination:
-    def __init__(self):
-        pass
-
-    def solve(self, amount, coins):
-        # dfs 
-        if amount < 0:
-            raise ValueError()
-        ret = 0 
-        # coins = sorted(coins, reverse=True)
-        for _x in range(amount // coins[0], -1, -1):
-            rest_coins = amount - (_x * coins[0])
-            if rest_coins == 0:
-                ret += 1
-            elif len(coins) > 1:
-                ret += self.solve(rest_coins, coins[1:])
-        return ret
 
     def solve_dp(self, amount, coins):
         # 组合数 (零钱种类)
@@ -47,6 +31,19 @@ class CoinsCombination:
         print(dp_case)
         return dp_case[-1]
 
+    def solve(self, amount, coins):
+        # dfs 
+        if amount < 0:
+            raise ValueError()
+        ret = 0 
+        # coins = sorted(coins, reverse=True)
+        for _x in range(amount // coins[0], -1, -1):
+            rest_coins = amount - (_x * coins[0])
+            if rest_coins == 0:
+                ret += 1
+            elif len(coins) > 1:
+                ret += self.solve(rest_coins, coins[1:])
+        return ret
 
 if __name__ == "__main__":
     amount = 10000

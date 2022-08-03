@@ -16,7 +16,6 @@ class KthLargestSolution:
 
     def quick_select(self, nums, l, r, k):
         """
-        k: 
         return: the index of k-th largest value
         """
         pivot = self.partition(nums, l, r)  # index
