@@ -25,3 +25,4 @@ if __name__ == "__main__":
     # AIDU - 1st interview
     arr = [5123,6162,671734,3115,3]
     print(kth_smallest(arr, 0, len(arr)-1, 3))
+    print(arr)
