@@ -18,21 +18,60 @@ https://www.acwing.com/problem/content/4/
 0 < vi,wi,si ≤ 100
 */
 
+#include <vector>
 #include <cstring>
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
 
-const int N = 1010;
+const int N = 2022;
 
 int n, m;
 int v[N], w[N], s[N];  // v[i] = 体积, w[i] = 价值, s[i] = 数量
 
 
 int main() {
+    // 二进制优化方法
+    cin >> n >> m;
+    vector<int> vv, ww;  // 体积, 价值
+    vv.push_back(0);
+    ww.push_back(0);
+    int f[N];  // f[i][j] = 从前i件物品中选择，体积等于j时物品的最大价值
+    memset(f, 0, sizeof(f));  // 所有体积小于等于 f[i] 的最大价值是多少
+
+    int nn = 0;
+    int _v, _w, _s;
+    for (int i = 1; i <= n; i++) {
+        cin >> _v >> _w >> _s;
+        for (int k = 1; k <= _s; k<<=1) {
+            vv.push_back(_v * k);
+            ww.push_back(_w * k);
+            nn ++;
+            _s -= k;
+        }
+        if (_s > 0) {
+            vv.push_back(_v * _s);
+            ww.push_back(_w * _s);
+            nn ++;
+        }
+    }
+
+    for (int i = 1; i <= nn; i++) {
+        for (int j = m; j >= vv[i]; j--) {
+            f[j] = max(f[j], f[j - vv[i]] + ww[i]);
+        }
+    }
+
+    cout << f[m] << endl;
+    return 0;
+}
+
+
+int main() {
     cin >> n >> m;
     int f[N];  // f[i][j] = 从前i件物品中选择，体积等于j时物品的最大价值
+    memset(f, 0, sizeof(f));  // 所有体积小于等于 f[i] 的最大价值是多少
 
     for (int i = 1; i <= n; i++) {
         cin >> v[i] >> w[i] >> s[i];
@@ -49,4 +88,3 @@ int main() {
     cout << f[m] << endl;
     return 0;
 }
-
