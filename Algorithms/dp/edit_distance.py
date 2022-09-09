@@ -72,7 +72,6 @@ def min_distance_bottom_up(word1: str, word2: str) -> int:
     dp = [[0 for _ in range(n + 1)] for _ in range(m + 1)]
     for i in range(m + 1):
         for j in range(n + 1):
-
             if i == 0:  # first string is empty
                 dp[i][j] = j
             elif j == 0:  # second string is empty
