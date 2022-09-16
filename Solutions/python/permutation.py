@@ -91,5 +91,5 @@ if __name__ == "__main__":
     print(permutation.arrange(4, 2))
     print(permutation.comb(17, 15))
     test_res = permutation.comb(13545, 300)
-    print(f"C_13545^300 = {test_res}")
+    print(f"C_13545^300 = {test_res} (mod {permutation._vmod})")
 
