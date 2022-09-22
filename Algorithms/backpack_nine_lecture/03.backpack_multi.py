@@ -36,16 +36,25 @@ def backpack_multi(n, m, v, w, s):
     """
     f = [0 for _ in range(m+1)]  # f[i] 为体积小于等于 i 的最大价值
     # f = [0] + [-inf for _ in range(m)]  # f[i] 为体积等于 i 的最大价值，结果需要遍历 f 找最大值
-
-    v, w, s = [0] + v, [0] + w, [0] + s  # 第1个物品: v[1] and w[1]
-    v = flatten([v[j] * j for j in range(1, s[i]+1)] for i in range(1, n+1))
-    w = flatten([w[j] * j for j in range(1, s[i]+1)] for i in range(1, n+1))
+    
+    nn, vv, ww = 0, [0], [0]  # 第1个物品: vv[1] and ww[1]
+    for _v, _w, _s in zip(v, w, s):
+        k = 1
+        while k <= _s:
+            vv.append(_v * k)
+            ww.append(_w * k)
+            _s -= k
+            nn += 1
+            k <<= 1
+        if _s > 0:
+            vv.append(_v * _s)
+            ww.append(_w * _s)
+            nn += 1
+    n, v, w = nn, vv, ww
 
     for i in range(1, n+1):
         for j in range(m, v[i]-1, -1):  # 反着来是为了让每个物品只能用一次
-            f[j] = max([f[j - k * v[i]] + k * w[i] 
-                        for k in range(s[i] + 1)
-                        if k * v[i] <= j])
+            f[j] = max(f[j - v[i]] + w[i], f[j])
 
     print(f[m])
 
@@ -73,4 +82,12 @@ def backpack_multi_naive(n, m, v, w, s):
             
 
 if __name__ == "__main__":
-    backpack_multi(4, 5, [1,2,3,4], [2,4,4,5], [3,1,3,2])    
+    n, m = list(map(int, input().strip().split()))
+    v, w, s = [], [], []
+    for _ in range(n):
+        _v, _w, _s = list(map(int, input().strip().split()))
+        v.append(_v)
+        w.append(_w)
+        s.append(_s)
+    # backpack_multi(4, 5, [1,2,3,4], [2,4,4,5], [3,1,3,2])    
+    backpack_multi(n, m, v, w, s)    
