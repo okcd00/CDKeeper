@@ -38,3 +38,7 @@ class KthLargestSolution:
             if len(h) > k:
                 heappop(h)
         return h[0]
+
+
+if __name__ == "__main__":
+    pass
