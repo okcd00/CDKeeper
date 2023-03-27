@@ -1,6 +1,7 @@
 #coding=utf-8
 
 """
+两个有序数组的中位数
 1 1 2 3 5 8 13 21 34 55
 2 3 5 8 13 21 34 55 89 144
 5
@@ -14,6 +15,13 @@ total_size = n + m
 
 
 def get_kth_smallest(k):
+    """
+    从两个有序数组中找到第 k 小的数。
+    具体思路：
+    取 a[k//2-1] 和 b[k//2-1] 比较，取 pivot = min(a[k//2-1], b[k//2-1])
+    两个数组中小于等于 pivot 的元素不超过 (k//2-1) * 2 = k-2 个，
+    即 pivot 本身最多只能是第 k-1 小的数。    
+    """
     offset_a = 0
     offset_b = 0
     while True:
