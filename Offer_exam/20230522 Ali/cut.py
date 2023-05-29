@@ -28,15 +28,17 @@ def cut_rod_b2t(p, n):
 
 
 def cut_rod(p, n):
-    r = [-1] * n
-    s = list(range(n))
+    r = [-1] * n  # maximum reward
+    s = list(range(n))  # cut at s[i] to get maximum reward
+
     for i in range(n):
         q = p[i]
         for j in range(i):
             if q < p[j] + p[i - j - 1]:
-                q =p[j] + p[i - j - 1]
+                q = p[j] + p[i - j - 1]
                 s[i] = j
             r[i] = q
+
     return r[n - 1], s[n - 1]
 
 
@@ -48,10 +50,11 @@ def my_trial(p, n):
         if n > 1:
             cut_result = max([record[i] + record[n-i] for i in range(1, n//2+1)])
         record.append(max(p[n-1], cut_result))
+
     return record[-1]
 
 
 if __name__ == "__main__":
-    p = [0.1, 0.2, 0.99, 0.4]
+    p = [1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
     print(my_trial(p, len(p)))
     print(cut_rod(p, len(p)))
