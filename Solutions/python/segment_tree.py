@@ -1,3 +1,17 @@
+# coding: utf-8
+# ==========================================================================
+#   Copyright (C) since 2024 All rights reserved.
+#
+#   filename : segment_tree.py
+#   author   : chendian / okcd00@qq.com
+#   date     : 2024/12/08 00:18:10
+#   desc     : 
+#              
+# ==========================================================================
+
+import os, sys, time
+
+
 class Tree():
     # 定义树节点，l, r, val表示该节点记录的是区间[l, r]的最大值是val
     def __init__(self):

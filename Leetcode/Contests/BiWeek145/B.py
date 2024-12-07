@@ -1,6 +1,7 @@
 import math
 from functools import cache
 
+
 class Solution:
     def findMinimumTime(self, strength, K: int) -> int:
         n = len(strength)

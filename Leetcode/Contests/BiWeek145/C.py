@@ -2,6 +2,7 @@ import math
 import heapq
 from functools import cache
 
+
 def dijkstra(graph, start):
     """
     使用 Dijkstra 算法计算从起点到图中所有节点的最短路径

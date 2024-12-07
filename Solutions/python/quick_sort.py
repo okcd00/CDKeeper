@@ -1,3 +1,16 @@
+# coding: utf-8
+# ==========================================================================
+#   Copyright (C) since 2024 All rights reserved.
+#
+#   filename : quick_sort.py
+#   author   : chendian / okcd00@qq.com
+#   date     : 2024/12/08 00:18:31
+#   desc     : 
+#              
+# ==========================================================================
+import os, sys, time
+
+
 def quick_sort_simple(nums):
     # sort the list
     if len(nums) >= 2:
@@ -38,10 +51,10 @@ class QuickSort:
     def __init__(self):
         self.partition = self.partition_oneway
 
-    def find_kth_largest(self, nums: List[int], k: int) -> int:
+    def find_kth_largest(self, nums, k: int) -> int:
         return self.quick_select(nums, 0, len(nums)-1, len(nums)-k)
 
-    def find_kth_smallest(self, nums: List[int], k: int) -> int:
+    def find_kth_smallest(self, nums, k: int) -> int:
         return self.quick_select(nums, 0, len(nums)-1, k-1)
 
     def quick_select(self, nums, l, r, index):

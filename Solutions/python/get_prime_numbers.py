@@ -17,4 +17,4 @@ def init_prime_euler():
 
 
 if __name__ == "__main__":
-    print(init_prime_euler()[:20])
+    print(init_prime_euler()[:1500])

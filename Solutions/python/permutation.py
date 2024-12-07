@@ -1,3 +1,16 @@
+# coding: utf-8
+# ==========================================================================
+#   Copyright (C) since 2024 All rights reserved.
+#
+#   filename : permutation.py
+#   author   : chendian / okcd00@qq.com
+#   date     : 2024/12/08 00:18:56
+#   desc     : 
+#              
+# ==========================================================================
+import os, sys, time
+
+
 def gcdext(a: int, b: int):
     # 扩展欧几里得算法 tuple (g, s, t)
     s, t, x, y = 1, 0, 0, 1  # 初始化s, t, x2, y2
