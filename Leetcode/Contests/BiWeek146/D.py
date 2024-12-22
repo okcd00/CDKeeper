@@ -1,73 +1,40 @@
-from collections import defaultdict
+from math import comb
+from typing import List
+from collections import defaultdict, Counter
 
 
 class Solution:
-    
     # ABCCC | ABCCE | ACCCC | ACCCE | ACCDE | BBCCC | BCCCC | CCCCC
-    def subsequencesWithMiddleMode(self, nums) -> int:
-        MOD = 10 ** 9 + 7
+    def subsequencesWithMiddleMode(self, nums: List[int]) -> int:
         n = len(nums)
-        uniq = sorted(set(nums))
-        mapping = {v: i for i, v in enumerate(uniq)}
-        nums = [mapping[v] for v in nums]
-        m = len(uniq)
-        acc = [[0] * m]
-        curr = [0] * m
-        for i in range(n):
-            curr[nums[i]] += 1
-            acc.append(list(curr))
-        
-        ans = 0
-        for i in range(2, n - 2):
-            num = nums[i]
-            left = acc[i][num]
-            right = acc[n][num] - acc[i + 1][num]
-            if left >= 2 and right >= 2:
-                ans += comb(left, 2) * comb(right, 2)
-            if left >= 2 and right >= 1:
-                ans += comb(left, 2) * right * (n - i - 1 - right)
-            if left >= 2:
-                ans += comb(left, 2) * comb(n - i - 1 - right, 2)
-            if right >= 2:
-                ans += comb(right, 2) * comb(i - left, 2)
-            if left >= 1 and right >= 2:
-                ans += left * (i - left) * comb(right, 2)
-            if left >= 1 and right >= 1:
-                ans += left * (i - left) * right * (n - i - 1 - right)
-                
-            if left >= 1:
-                base = left * (i - left) * comb(n - i - 1 - right, 2)
-                for other in range(m):
-                    if other == num:
+        suf = Counter(nums)
+        pre = defaultdict(int)
+        ans = comb(n, 5)  # 所有方案数
+        # 枚举 x，作为子序列正中间的数
+        for left, x in enumerate(nums[:-2]):
+            suf[x] -= 1
+            if left > 1:
+                right = n - 1 - left
+                pre_x, suf_x = pre[x], suf[x]
+                # 不合法：只有一个 x
+                ans -= comb(left - pre_x, 2) * comb(right - suf_x, 2)
+                # 不合法：只有两个 x，且至少有两个 y（y != x）
+                for y, suf_y in suf.items():
+                    if y == x:
                         continue
-                    to_del = 0
-                    other_left = acc[i][other]
-                    other_right = acc[n][other] - acc[i + 1][other]
-                    if other_left >= 1 and other_right >= 1:
-                        to_del += left * other_left * other_right * (n - i - 1 - right - other_right)
-                    if other_right >= 2:
-                        to_del += left * (i - left - other_left) * comb(other_right, 2)
-                    if other_left >= 1 and other_right >= 2:
-                        to_del += left * other_left * comb(other_right, 2)
-                    base -= to_del
-                ans += base
-                
-            if right >= 1:
-                base = right * (n - i - 1 - right) * comb(i - left, 2)
-                for other in range(m):
-                    if other == num:
-                        continue
-                    to_del = 0
-                    other_left = acc[i][other]
-                    other_right = acc[n][other] - acc[i + 1][other]
-                    if other_left >= 1 and other_right >= 1:
-                        to_del += right * other_left * other_right * (i - left - other_left)
-                    if other_left >= 2:
-                        to_del += right * (n - i - 1 - right - other_right) * comb(other_left, 2)
-                    if other_left >= 2 and other_right >= 1:
-                        to_del += right * other_right * comb(other_left, 2)
-                    base -= to_del
-                ans += base
-                
-            ans %= MOD
-        return ans   
+                    pre_y = pre[y]
+                    # 左边有两个 y，右边有一个 x，即 yy x xz（z 可以等于 y）
+                    ans -= comb(pre_y, 2) * suf_x * (right - suf_x)
+                    # 右边有两个 y，左边有一个 x，即 zx x yy（z 可以等于 y）
+                    ans -= comb(suf_y, 2) * pre_x * (left - pre_x)
+                    # 左右各有一个 y，另一个 x 在左边，即 xy x yz（z != y）
+                    ans -= pre_y * suf_y * pre_x * (right - suf_x - suf_y)
+                    # 左右各有一个 y，另一个 x 在右边，即 zy x xy（z != y）
+                    ans -= pre_y * suf_y * suf_x * (left - pre_x - pre_y)
+            pre[x] += 1
+        return ans % 1_000_000_007
+
+
+if __name__ == "__main__":
+    ans = Solution().subsequencesWithMiddleMode([1,2,2,3,3,4])
+    print(ans)

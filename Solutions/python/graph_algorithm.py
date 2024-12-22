@@ -11,6 +11,52 @@
 import heapq
 
 
+class TARJAN:
+    """
+    Tarjan 割点&桥 算法
+
+    # x 是割点
+    # 割点 Case 1: 非root && 有儿子 && low[x的child] >= dfn[x]
+    # 割点 Case 2: root && 有不少于2个儿子
+
+    # x->y 是桥
+    # low[y] > dfn[x]
+    """
+    def __init__(self, n: int, g):
+        # 记录结点的当前时间戳和最早时间戳
+        # 从根开始的一条路径上 dfn 严格递增，low 严格非降
+        self.dfn = [-1] * n
+        self.low = [-1] * n
+        self.bridge = []  # 桥
+        self.flag = [False] * n  # 是否是割点
+        self.g = g
+
+    def tarjan(self, o: int, f: int, t: int) -> None:
+        self.dfn[o] = t
+        self.low[o] = t
+        c = 0
+        for child in self.g[o]:
+            if child != f:
+                if self.dfn[child] == -1:
+                    c += 1
+                    self.tarjan(child, o, t + 1)
+                    self.low[o] = min(self.low[o], self.low[child])
+
+                    # Case 1: 找到割点, 非root, 有儿子
+                    if self.dfn[o] <= self.low[child] and f != -1 and not self.flag[o]:
+                        self.flag[o] = True
+
+                    # 找到桥
+                    if self.dfn[o] < self.low[child]:
+                        self.bridge.append([o, child])
+                else:
+                    self.low[o] = min(self.low[o], self.dfn[child])
+                    
+        # Case 2: root点 儿子数大于等于2
+        if f == -1 and c >= 2 and not self.flag[o]:
+            self.flag[o] = True
+
+
 def dijkstra(graph, start):
     """
     使用 Dijkstra 算法计算从起点到图中所有节点的最短路径
