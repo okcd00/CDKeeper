@@ -7,6 +7,8 @@
 | --- | --- |
 | [滑动窗口与单调队列](sliding_window/README.md) | 最近 k 项的最大值；为什么队尾可以删除 |
 | [流式窗口计数](streaming_counts/README.md) | 最近一段时间的品类频次；没有新事件时查询仍需过期清理 |
+| [指数衰减](exponential_decay/README.md) | 半衰期与按需更新；鞋包软记忆示例 |
+| [单边 CUSUM](cusum/README.md) | 累计偏移检测；相同触发预算下校准 |
 
 ## 约定
 - 本目录独立维护，不重构历史题解。原专题可参考 [Algorithms](../Algorithms)。
